@@ -24,6 +24,35 @@ Owns `load.py`, `clean.py`, `features.py`, `viz.py` · notebooks 01, 02, 06
 6. Ship `data/processed/games.parquet` — minimal first, refined after.
 7. Q4: apply B's final model across tiers and report what changes.
 
+### A's sprints
+
+| | Sprint | Status | Blocked by |
+|---|---|---|---|
+| **A1** | Pipeline, quality audit, `games.parquet` | **done** — PR #1 | — |
+| **A2** | Feature–target EDA: distributions, correlation structure, which of the 14 carry signal | next | — |
+| **A3** | Q4 transfer harness — train-on-Diamond / test-on-Challenger, taking any fitted estimator | next | — |
+| **A4** | Q4 results with B's final model | Thursday evening | B's A1 model |
+| **A5** | A's slides (1, 2, 3, 4, 11) and report sections | Thursday night | A2–A4 |
+
+**A1 — done.** `load.py`, `clean.py`, `features.py`, `viz.py`, notebook 01, four figures,
+D01–D10, V01–V04. 33,755 games, 14 features, zero missing values.
+
+**A2 — feature–target EDA.** The collapse proved the 14 features are linearly independent of
+each other; it did not show which of them say anything about the result. Deliverable:
+notebook 02 plus figures showing each feature's distribution, its relationship to `blue_wins`,
+and the residual correlation structure. This also hands B a head start on feature selection —
+but B decides what the model uses; A only describes what is there.
+
+**A3 — transfer harness.** `src/lol/transfer.py`: a function taking any fitted sklearn
+estimator, training on Diamond, evaluating on Challenger, and reporting the metric deltas.
+Built before B's model exists so A4 is a swap, not a build. Notebook 06 is scaffolded with a
+placeholder estimator so it runs end to end from the start.
+
+**A4 — Q4 results.** Swap in B's chosen model. The question: does a model fit on Diamond hold
+at Challenger, and do the same features matter at both skill levels?
+
+**A5 — communication.** Slides 1–4 and 11 per the team doc, plus A's report sections.
+
 ## B — Q1 classification and evaluation
 
 Owns `evaluate.py` · notebook 03

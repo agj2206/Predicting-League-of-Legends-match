@@ -1,0 +1,35 @@
+# Data is never committed (CLAUDE.md §2).
+# The two folders are kept (via .gitkeep) so a fresh clone has somewhere to put the CSVs,
+# but everything inside them is ignored.
+data/*
+!data/raw/
+!data/processed/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Kaggle credentials — never commit
+kaggle.json
+.kaggle/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Course lecture PDFs — not ours to redistribute
+pdfs/

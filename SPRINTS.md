@@ -65,6 +65,47 @@ Owns `evaluate.py` · notebook 03
 5. Pick a final model, retrain, evaluate once on the held-out set.
 6. Interpretation: depth-limited tree plot, feature importances, in plain language.
 
+### B's sprints  ·  owner: Andrea
+
+Q1 trains and tests **within Diamond only** (9,879 games, 14 features) — decision D10.
+Challenger is held out entirely as Q4's transfer target. Read `docs/decisions.md` D09–D12 and
+notebook 02 before starting; A already measured things you would otherwise rediscover.
+
+| | Sprint | Deliverable |
+|---|---|---|
+| **B1** | `src/lol/evaluate.py` — nested CV harness, metrics, ROC | module + commit |
+| **B2** | Feature selection, three ways, and where they disagree | notebook 03 section |
+| **B3** | Decision Tree, KNN, SVM, all inside Pipelines | notebook 03 section |
+| **B4** | Compare, choose, evaluate once on held-out | comparison table + figures |
+| **B5** | Interpretation: tree plot, importances, plain language | figures + write-up |
+
+**B1 — nested CV.** Outer 5-fold stratified for an honest estimate, inner 3-fold for
+hyperparameters. The rubric names nested cross-validation explicitly, so a plain
+`cross_val_score` leaves marks on the table. Report precision, recall, F1 and ROC-AUC as
+mean ± std across the outer folds.
+
+**B2 — feature selection.** Correlation filter, mutual information, tree importance. Report
+where they disagree rather than just the union. A2 predicts every method drops
+`total_gold_both` and `total_kills_both` (correlation 0.008 and 0.005 with the result) — if one
+method keeps them, that method is the suspect, not the features.
+
+**B3 — the three models.** No Naive Bayes (D03: it was not taught in this course). All
+preprocessing inside sklearn Pipelines so scaling is fit per fold and never on the full data.
+KNN and SVM need scaling; the tree does not — the Pipeline makes that difference explicit
+instead of hidden.
+
+**B4 — choose once, test once.** Retrain the winner on the full training split and score it a
+single time on the held-out set. Scoring repeatedly and picking the best is how a test set
+stops being a test set.
+
+**B5 — interpretation, with A2's caveat attached.** `kills_diff` and `total_gold_diff` correlate
+at 0.92, so whichever the tree splits on first will look far more important than the other.
+Any claim like "gold matters more than kills" has to survive that.
+
+**Known risk.** RBF SVM under nested CV on ~7,900 rows is roughly 90 fits — minutes, not
+seconds. Keep the grid small. If it drags, `LinearSVC` is an allowed fallback (CLAUDE.md §3.4)
+provided the swap is logged in `docs/decisions.md`.
+
 ## C — Q2 clustering and Q3 association rules
 
 Owns `segments.py`, `rules.py` · notebooks 04, 05

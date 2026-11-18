@@ -134,3 +134,16 @@ Format:
   the early game says, which would make Q4's transfer result meaningless.
 - **Affects:** Q1 (B), Q4 (A). Agreed split: Q1 trains and tests within Diamond; Challenger is held
   out entirely as the transfer target; Q2 and Q3 run on the combined table.
+
+### D11 — The two match totals are kept in the table, and expected to be dropped by B
+- **Date:** 2026-11-18 · **Author:** A (Cesar, agent-assisted)
+- **Decision:** `total_gold_both` and `total_kills_both` stay in `games.parquet` rather than
+  being removed at the feature-building stage.
+- **Alternatives:** drop them in `features.py` once they were found to carry no signal.
+- **Why:** they measure how big the game was, not who is ahead, and the result does not care —
+  correlation with the target 0.0077 and 0.0049, mutual information 0.0033 and 0.0000. That is a
+  finding worth showing, and it is the cleanest statement of this project's central point: at ten
+  minutes, only the gap predicts the winner. Removing them silently would hide the evidence.
+  B's feature selection should discard them, and the fact that it does is a check that B's
+  selection method works.
+- **Affects:** Q1 (B) — expect 12 features after selection, not 14.

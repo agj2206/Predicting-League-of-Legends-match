@@ -159,3 +159,21 @@ Format:
 - **Affects:** Q4, notebook 06. The report must also state that the two tiers are different
   populations of different sizes, so a higher score away is not evidence the model is "better at
   Challenger".
+
+### D13 — D11's prediction was wrong: the match totals are not unanimously useless
+- **Date:** 2026-11-18 · **Author:** A (Cesar, agent-assisted) · **Supersedes the prediction in D11**
+- **Decision:** `total_gold_both` and `total_kills_both` stay in the feature set, and B should
+  **not** expect feature selection to discard them.
+- **What D11 claimed:** that every reasonable selection method would drop both, and that this
+  would serve as a check on B's method.
+- **What the measurement showed:** the three methods agree on dropping *nothing*. Correlation
+  drops both; mutual information drops only `total_kills_both`; and tree importance ranks
+  `total_gold_both` **4th of 14** (0.0900) despite its correlation with the result being 0.0154.
+- **Why:** it appears to act as a scale for the lead rather than a predictor on its own. The same
+  gold advantage is worth less in a high-gold game — with a 1,000–2,000 gold lead, blue wins
+  71.9% of slow games but 65.5% of bloodbaths. A feature with no marginal association can still
+  matter in interaction, which is precisely what a correlation filter cannot see.
+- **But it is not load-bearing.** Nested CV on Diamond gives ROC-AUC 0.8000 ± 0.0144 with all 14
+  features and 0.7994 ± 0.0141 without the two totals — a difference well inside fold-to-fold
+  noise. The honest conclusion is "interesting, not load-bearing".
+- **Affects:** Q1 (B). This is the live example for B2's "report where the methods disagree".

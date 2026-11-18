@@ -91,3 +91,20 @@ Format:
 - **Guardrail:** a helper that writes prose is as capable of being wrong as one that computes a
   number, and it fails silently because the text always reads plausibly. Check generated wording
   against the data it describes.
+
+### V06 — The agent predicted a result instead of measuring it
+- **Date:** 2026-11-18 · **Caught by:** agent, on running the check it had already written down
+- **What happened:** D11 asserted that every reasonable feature-selection method would discard
+  `total_gold_both` and `total_kills_both`, and proposed using that as a check on B's method. The
+  claim was extrapolated from one statistic — near-zero correlation with the target — and written
+  into the decision log as though it were established.
+- **How it was detected:** actually running the three selection methods. They agree on dropping
+  nothing, and tree importance ranks `total_gold_both` 4th of 14.
+- **Why it mattered:** the false claim was written into a handoff document. B would have read
+  "expect 12 features after selection", found 14, and had to work out which of the two sources to
+  believe — or worse, forced the expected answer.
+- **Fix:** D13 supersedes the prediction and records what the measurement showed, including the
+  interaction that explains it and the nested-CV result showing it is not load-bearing.
+- **Guardrail:** this repeats V02's lesson in a new costume. A decision log entry states what was
+  measured and what was chosen; a prediction about what a later step will find does not belong in
+  it unless it is labelled as untested.

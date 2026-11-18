@@ -33,3 +33,6 @@ kaggle.json
 
 # Course lecture PDFs — not ours to redistribute
 pdfs/
+
+# Agent trajectories stay local — they go in the submission ZIP, not the repo
+*.jsonl

@@ -77,3 +77,17 @@ Format:
 - **Fix:** changed to the relative `from .load import repo_root`.
 - **Guardrail:** a file carried across projects is not verified by the fact that it imports. Read
   what it references, and exercise the function, not just the module.
+
+### V05 — An interpretation helper assumed transfer could only get worse
+- **Date:** 2026-11-18 · **Caught by:** agent, reading its own output against the numbers
+- **What happened:** `transfer.diagnose()` branched on the *absolute* size of the metric change
+  and then described it in words written for degradation. On the placeholder model, where
+  transfer improved (ROC-AUC +0.018, accuracy +0.024), it reported "the threshold needs re-fitting
+  per tier" — advice that makes no sense when the away tier scores higher.
+- **How it was detected:** reading the generated sentence against the table above it, rather than
+  accepting it because the function ran without error.
+- **Fix:** the branches are sign-aware, and an improvement is now described as such, with the
+  caveat that two different populations are not a like-for-like contest.
+- **Guardrail:** a helper that writes prose is as capable of being wrong as one that computes a
+  number, and it fails silently because the text always reads plausibly. Check generated wording
+  against the data it describes.

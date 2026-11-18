@@ -147,3 +147,15 @@ Format:
   B's feature selection should discard them, and the fact that it does is a check that B's
   selection method works.
 - **Affects:** Q1 (B) — expect 12 features after selection, not 14.
+
+### D12 — Q4 holds Challenger out entirely, and splits Diamond so the comparison is honest
+- **Date:** 2026-11-18 · **Author:** A (Cesar, agent-assisted)
+- **Decision:** `transfer_report` fits on a 75% slice of Diamond and scores three ways — Diamond
+  train, Diamond held-out, and the whole Challenger tier.
+- **Alternatives:** fit on all of Diamond and compare in-sample Diamond against Challenger.
+- **Why:** comparing an in-sample number against an out-of-sample one would confound the transfer
+  gap with memorisation, and any drop could be attributed to either. The held-out Diamond row is
+  the only fair baseline for the Challenger row.
+- **Affects:** Q4, notebook 06. The report must also state that the two tiers are different
+  populations of different sizes, so a higher score away is not evidence the model is "better at
+  Challenger".

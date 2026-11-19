@@ -144,35 +144,54 @@ reproduce Part A.
 
 ---
 
-## Project status and next stages
+## Project status and work division
 
-| Part | Scope | Owner | Status |
+One research question, three sequential stages.
+
+| Stage | Scope | Owner | Status |
 |---|---|---|---|
-| **A** | Preprocessing, validation, split, EDA | Cesar | **done** |
-| **B** | Q1 — classification and evaluation | Andrea | next |
-| **C** | Q2 clustering, Q3 association rules | Christian | next |
+| **1** | Data preprocessing, validation, split, EDA | Cesar | **done** |
+| **2** | Model training — Decision Tree, KNN, SVM, nested CV, hyperparameter tuning | Andrea | **done** |
+| **3** | Model evaluation — confusion matrix, accuracy, precision, recall, F1, ROC-AUC, ROC curves, interpretation | Christian | next |
 
-Parts B and C are independent of each other and both start from Part A's output.
+We deliberately keep to the single question above. Clustering and association-rule mining were
+considered as secondary questions and dropped (decision D07) so that one question is answered
+properly rather than three superficially.
 
-### How B and C consume Part A
+### Stage 2 result
 
-Call `prepare_data()` — never read a stored file, so nobody works from a stale artefact:
+Nested cross-validation, outer 5-fold × inner 3-fold, against a majority-class baseline:
+
+| model | accuracy | ROC-AUC |
+|---|---|---|
+| dummy baseline | 0.5009 ± 0.0002 | 0.5000 |
+| decision tree | 0.7158 ± 0.0206 | 0.7940 ± 0.0132 |
+| KNN | 0.7162 ± 0.0145 | 0.7986 ± 0.0130 |
+| **SVM (linear, C=10)** | **0.7295 ± 0.0167** | **0.8089 ± 0.0136** |
+
+The SVM was selected on outer mean accuracy under a rule frozen before the final searches.
+**The held-out test set has not been used** — it is spent once, in Stage 3.
+
+### How each stage consumes the previous one
+
+Call the functions; never read a stored file, so nobody works from a stale artefact.
 
 ```python
-import sys; sys.path.insert(0, "src")
-from lol_preprocessing import prepare_data, FEATURE_NAMES, TARGET
+from src.lol_preprocessing import prepare_data
+from src.lol_model_training import load_final_model, load_run_results
 
-data = prepare_data()
-data.X_train   # (7903, 12)
-data.X_test    # (1976, 12)
-data.y_train, data.y_test
+data = prepare_data()                 # X_train (7903, 12), X_test (1976, 12)
+
+run_id   = "diamond_5x3_seed42"
+results  = load_run_results(run_id=run_id)
+model    = load_final_model(results["metadata"]["selected_model"], run_id=run_id)
 ```
 
-The split is fixed and reproducible. **Do not recompute it**, and do not fit anything on
-`X_test` — Part A deliberately split before computing any statistic (decision D04), and the
-held-out set is only honest if it stays untouched until the final evaluation.
+Pass `data.X_test` **unscaled** straight to `model.predict` — the scaler lives inside the
+Pipeline. Do not call `fit` or `fit_transform`, and do not recompute the split: Stage 1 split
+before computing any statistic (decision D04), and the held-out set is only honest untouched.
 
-See `SPRINTS.md` for the B and C task breakdowns, `docs/decisions.md` for every choice and its
+See `SPRINTS.md` for the stage breakdowns, `docs/decisions.md` for every choice and its
 evidence, and `docs/agent_validation.md` for mistakes caught during the work.
 
 ### Tests
@@ -180,9 +199,6 @@ evidence, and `docs/agent_validation.md` for mistakes caught during the work.
 ```
 python -m unittest discover -s tests
 ```
-
-Thirteen checks covering the source contract, feature exclusion, split partitioning and
-alignment, and split reproducibility. Run them before committing.
 
 ## Team
 

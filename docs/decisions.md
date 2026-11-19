@@ -86,3 +86,23 @@ Format:
   with a caveat. Gold, combat, experience and minion extremes are all plausible for real games.
 - **Affects:** every question. `wardsPlacedDiff` is the weakest predictor (0.016) and should be
   treated as the least trustworthy feature in the set. This belongs in the report's limitations.
+
+### D07 — One research question: clustering and association rules are dropped
+- **Date:** 2026-11-19 · **Author:** team decision
+- **Decision:** the project answers a single question — can the winner be predicted from the
+  first ten minutes? Supervised binary classification only. No K-means, hierarchical clustering,
+  DBSCAN or Apriori. `mlxtend` is removed from `requirements.txt`.
+- **Alternatives:** keep two secondary questions — clustering for "game archetypes at ten
+  minutes" and association rules for "which combinations of early conditions precede a win" —
+  which would have exercised more of the syllabus.
+- **Why:** one question answered properly beats three answered superficially, and the work
+  already done on this one is deep: a validated split taken before any statistic, a 40-to-12
+  feature reduction with arithmetic proofs, nested cross-validation against a baseline, and a
+  held-out set still untouched. Spreading the remaining time across clustering and rule mining
+  would have thinned all three.
+- **The cost, stated rather than hidden:** the rubric's LO3 row rewards applying different data
+  mining techniques, and we now demonstrate one family rather than three. The report should name
+  this as a deliberate scope choice and point at the depth bought with it, not leave it to be
+  read as an omission.
+- **Affects:** `README.md`, `CLAUDE.md`, `SPRINTS.md`, `requirements.txt`. Stage 3 becomes model
+  evaluation rather than clustering and rules.

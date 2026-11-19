@@ -24,7 +24,10 @@ association-rule mining — see decision D07. Depth on one question beats breadt
   condition under which it means anything. Still never report it alone.
 - **Observational data.** A gold lead predicting a win is not evidence that chasing gold early
   causes wins.
-- **Scope.** Ranked solo queue, high Diamond to low Master, one patch window, one region.
+- **Scope, and what we cannot claim.** 9,879 ranked solo-queue matches, described by the
+  dataset's author as high Diamond to low Master. The CSV has no patch, date or region column,
+  so we do **not** assert that the matches share a patch window or a server — that was an
+  unverified claim and it was removed (V07). Generalisation beyond this sample is unestablished.
 
 **Alternatives considered and rejected** (mention in the report): predicting from post-10-minute
 state (trivially easy, decides nothing anyone can act on); a second rank tier for a cross-tier

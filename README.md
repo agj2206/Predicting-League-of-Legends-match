@@ -208,6 +208,9 @@ git-ignored and never committed.
 
 ## Scope and limitations
 
-Ranked solo queue, high Diamond to low Master, one patch window, one region, 9,879 matches.
+9,879 ranked solo-queue matches, described by the dataset's author as high Diamond to low
+Master. **Patch, date and region are unknown** — the CSV carries no such columns, so we cannot
+say the matches share a patch window or a server, and we do not claim it. That limits what the
+result generalises to: a model fit here is not shown to hold on a later patch or another region.
 Observational data: a gold lead predicting a win is not evidence that chasing gold early causes
 wins. Conclusions are not generalised beyond this scope.

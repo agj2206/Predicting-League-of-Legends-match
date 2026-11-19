@@ -101,3 +101,22 @@ Format:
   is training-only, with the one full-source figure explicitly labelled (D04).
 - **Guardrail:** the split comes first, always — before correlations, before audits, before
   figures. "Just describing the data" is not an exemption.
+
+### V07 — A scope claim was written that the data cannot support
+- **Date:** 2026-11-19 · **Caught by:** human review (teammate reading the updated docs)
+- **What happened:** the scope statement in `README.md` and `CLAUDE.md` said the matches come
+  from "one patch window, one region". Neither is knowable from this dataset: the CSV has 40
+  columns and none of them records a patch, a date, a region, a server or a queue. The claim was
+  inherited from a general sense of how such datasets are collected, not from the file.
+- **How it was detected:** a teammate read the documentation and asked whether it had actually
+  been verified. It had not.
+- **Why it mattered:** it is the same failure the project warns about elsewhere — stating what
+  was assumed as though it were measured. Worse, it contradicted a careful sentence already in
+  the same README, which correctly said that "patch/time metadata are unavailable here". One
+  document asserting two incompatible things is how a reader loses trust in all of it.
+- **Fix:** both statements now say what is actually known — the rank range comes from the
+  dataset author's description, and patch, date and region are unknown — and draw the
+  consequence, that generalisation to another patch or region is unestablished.
+- **Guardrail:** a scope statement is a claim like any other and needs the same evidence as a
+  number. Before writing one, check it against the columns that exist. Grepping the header for
+  `patch|date|region|season|queue` takes seconds and settles it.

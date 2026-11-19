@@ -74,7 +74,9 @@ Format:
   `redGoldDiff`. Keeping both sides doubles the column count without adding information and makes
   feature importances unreadable. Per-column exclusion reasons are in `feature_decisions()` and
   the notebook; 13 arithmetic consistency checks confirm the identities hold on all 9,879 rows.
-- **Affects:** Q1, Q2, Q3.
+- **Affects:** Q1. (Originally recorded as "Q1, Q2, Q3"; Q2 clustering and Q3 association rules
+  were dropped in D07, so only Q1 remains. The original wording is kept rather than rewritten,
+  since the log is append-only and the change is itself part of the record.)
 
 ### D06 — Ward outliers are retained, not clipped
 - **Date:** 2026-11-19 · **Author:** A

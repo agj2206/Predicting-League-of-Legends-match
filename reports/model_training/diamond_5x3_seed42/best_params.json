@@ -1,0 +1,19 @@
+{
+  "decision_tree": {
+    "classifier__criterion": "entropy",
+    "classifier__max_depth": 5,
+    "classifier__min_samples_leaf": 20
+  },
+  "dummy": {
+    "classifier__strategy": "most_frequent"
+  },
+  "knn": {
+    "classifier__n_neighbors": 81,
+    "classifier__p": 1,
+    "classifier__weights": "distance"
+  },
+  "svm": {
+    "classifier__C": 10,
+    "classifier__kernel": "linear"
+  }
+}

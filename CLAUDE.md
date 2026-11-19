@@ -1,147 +1,118 @@
 # CLAUDE.md — LoL Early-Game Project (CDS3004 Data Mining, Lingnan University)
 
-Read by Claude Code at the start of every session. Follow it strictly.
+Read at the start of every session. Follow it strictly.
 
 ## 1. Project context
 
-In League of Legends ranked play, teams often claim a match is "already decided" by the 10-minute
-mark. This project tests that claim on data, and asks whether it holds the same way at different
-skill levels.
+Players claim a ranked League of Legends match is "already decided" by the 10-minute mark.
+This project tests that on data.
 
-**Central question:** How much of a ranked match outcome is already determined at 10 minutes, which
-early advantages actually carry that signal, and does the answer change with player skill?
+**Central question:** can we predict the winning team using only statistics available after the
+first 10 minutes?
 
-| ID | Business question | Technique | Decision it enables |
+| ID | Question | Technique | Owner |
 |---|---|---|---|
-| Q1 (main) | Can the 10-minute state predict the winner, and which advantages matter? | Classification (Decision Tree, KNN, SVM) | What coaching and draft guidance should prioritise early |
-| Q2 | What game archetypes exist at 10 minutes? | Clustering (K-means vs Hierarchical vs DBSCAN) | Describing match state beyond "ahead / behind" |
-| Q3 | Which *combinations* of early conditions precede a win? | Association rules (Apriori, consequent = `blue_wins`) | Interpretable rules, cross-checked against the tree |
-| Q4 (transfer) | Does a model fit on Diamond hold at Challenger? | Apply the Q1 model across tiers | Whether early-game advice generalises across skill |
-
-Q2's archetype label can be used as a feature in Q1. Q3's rules validate what the tree learned.
-Q4 is the project's differentiator and supplies the rubric's "decision making on new examples".
+| Q1 (main) | Can the 10-minute state predict the winner, and which advantages matter? | Classification — Decision Tree, KNN, SVM | B |
+| Q2 | What game archetypes exist at 10 minutes? | Clustering — K-means vs Hierarchical vs DBSCAN | C |
+| Q3 | Which combinations of early conditions precede a win? | Association rules — Apriori | C |
 
 **Constraints that must be respected and discussed in the report:**
-- **Redundancy, not leakage, is the main data trap.** Roughly half the 38 team features are exact
-  mirrors (`blueGoldDiff` = −`redGoldDiff`, `blueDeaths` = `redKills`, `blueKills` = `redDeaths`),
-  and several more are deterministic restatements (`blueCSPerMin` = `blueTotalMinionsKilled`/10;
-  `blueGoldPerMin` likewise; `blueAvgLevel` is near-deterministic in `blueTotalExperience`).
-  Quantifying this collapse is a graded deliverable, not a footnote.
-- **Balanced classes.** `blueWins` is close to 50/50, so accuracy is readable here — but still
-  report precision, recall, F1 and ROC-AUC, and show the confusion matrix.
-- **Observational data.** Correlation at 10 minutes is not causation. A gold lead predicting a win
-  does not prove that chasing gold early causes wins.
-- **Scope.** Ranked solo queue, high Diamond to low Master (plus the Challenger tier), one patch
-  window, one region. Do not generalise beyond it.
+- **Redundancy is the main data trap.** Many of the 40 published columns restate each other
+  (`blueGoldDiff` = −`redGoldDiff`, `blueDeaths` = `redKills`, `blueCSPerMin` =
+  `blueTotalMinionsKilled`/10). Part A reduced them to 12 predictors, all blue-minus-red
+  differences. Quantifying that collapse is a graded deliverable, not a footnote.
+- **Balanced classes.** Blue wins 49.904% of games, so accuracy is readable here — the only
+  condition under which it means anything. Still never report it alone.
+- **Observational data.** A gold lead predicting a win is not evidence that chasing gold early
+  causes wins.
+- **Scope.** Ranked solo queue, high Diamond to low Master, one patch window, one region.
 
 **Alternatives considered and rejected** (mention in the report): predicting from post-10-minute
-state (trivially easy, decides nothing anyone can act on), champion-level draft analysis (the data
-has no champion identifiers), and regression on game duration (a different question).
+state (trivially easy, decides nothing anyone can act on), adding a second rank tier for a
+cross-tier transfer study (dropped on 2026-11-19 for scope — see D02), champion-level draft
+analysis (the data has no champion identifiers).
 
 ## 2. Data
 
-Two Kaggle datasets, both in `data/raw/`:
+One Kaggle dataset: `bobbyscience/league-of-legends-diamond-ranked-games-10-min`, file
+`high_diamond_ranked_10min.csv` — **9,879 matches, 40 columns**, SHA-256
+`82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6`.
 
-| Tier | Source | File |
-|---|---|---|
-| Diamond–Master | `bobbyscience/league-of-legends-diamond-ranked-games-10-min` | `high_diamond_ranked_10min.csv` |
-| Challenger | `gyejr95/league-of-legends-challenger-rank-game10min15min` | the **10-minute** file only |
-
-- `data/` is git-ignored. Never commit raw or processed data.
-- If `data/raw/` has no LoL CSV, STOP and ask the human to download it. Never ask for or handle
-  Kaggle credentials.
-- Every fact about shape, columns and dtypes must be **measured from the file**, never assumed from
-  the Kaggle description. The two tiers were built by different authors and their schemas differ.
+- `data/` is git-ignored. Never commit raw or derived data.
+- If the CSV is absent, STOP and ask the human to download it. Never ask for or handle Kaggle
+  credentials.
+- Every claim about shape, columns or dtypes must be **measured from the file**, never assumed
+  from the Kaggle description.
 
 ## 3. Non-negotiable rules for the agent
 
-1. **Plan before code.** At the start of each workstream, inspect the current state, propose a plan,
-   and wait for human approval before writing code.
+1. **Plan before code.** Propose a plan and wait for human approval before writing code.
 2. **Validity rules:**
-   - `gameId` is an identifier, never a feature. Drop it before any model.
-   - **Only 10-minute data.** The Challenger source ships a 15-minute file as well. Merging or
-     using any 15-minute column would mix two different decision points and invalidate Q1.
-   - **Deduplicate across tiers before splitting.** A `gameId` present in both files would put the
-     same match in train and test.
-   - All imputation, scaling and encoding happen **inside** sklearn Pipelines, so nothing is fit
-     outside the CV folds.
-   - Mirror columns must be removed or reduced to differences before interpreting any feature
-     importance. Keeping both sides double-counts and makes the importances unreadable.
+   - `gameId` is an identifier, never a feature.
+   - The train/test split happens **before** any statistic, scaler, imputer or selector is fit.
+     Part A already did this; descriptive statistics are computed on training data only.
+   - All preprocessing goes **inside** sklearn Pipelines, so nothing is fit outside the CV folds.
+   - Mirror columns are already removed. Do not reintroduce both sides of a difference.
 3. **Reproducibility:** `random_state=42` everywhere. Pin dependencies in `requirements.txt`.
-   Notebooks must run top-to-bottom ("Run All") without errors.
+   Notebooks must run top-to-bottom without errors.
 4. **Course techniques only:** scikit-learn and mlxtend, limited to what the course covered —
    preprocessing, discretization, similarity and distance, PCA, decision trees, KNN, SVM, model
-   evaluation and cross-validation, K-means, hierarchical clustering, DBSCAN, Apriori. Note that
-   **Naive Bayes was not taught in this course** (it appears once across all ten lectures), so do
-   not include it. Anything beyond the syllabus must be justified in `docs/decisions.md`.
-5. **Reusable logic goes in `src/lol/`.** Notebooks import from there and carry narrative, results
-   and figures.
-6. **Log decisions:** every non-trivial choice (filters, thresholds, K, minsup, features dropped)
-   gets one entry in `docs/decisions.md` (date, decision, alternatives, why).
-7. **Log validation:** whenever the human or the agent catches an agent mistake (a wrong join, a
-   bad metric, a hallucinated column, an invented number), add an entry to
-   `docs/agent_validation.md`. The course grades this.
-8. **Commits:** small and descriptive (`feat(features): tier-merged 10-minute table`). Each member
-   commits their own work from their own GitHub account. Commit only when the human asks. Never
-   rewrite history.
-9. **Figures:** save to `reports/figures/` as PNG, 150 dpi, labelled axes, a title, readable fonts.
-   They go straight into Friday's slides.
-10. **Never invent numbers** in markdown cells, docs or slides. Every number cited must come from
-    executed code output.
+   evaluation and cross-validation, K-means, hierarchical clustering, DBSCAN, Apriori.
+   **Naive Bayes was not taught** (one passing mention across ten lecture decks) — do not use it.
+   Anything beyond the syllabus must be justified in `docs/decisions.md`.
+5. **Reusable logic goes in `src/`.** Notebooks carry narrative, results and figures.
+6. **Log decisions:** every non-trivial choice gets one entry in `docs/decisions.md`.
+7. **Log validation:** every caught agent mistake gets an entry in `docs/agent_validation.md`.
+   The course grades this; an empty log reads as "we never checked".
+8. **Tests:** `tests/` holds the data-contract and split-reproducibility checks. Run them before
+   committing: `python -m unittest discover -s tests`.
+9. **Commits:** small and descriptive. Commit only when the human asks. Never rewrite history.
+10. **Figures:** `reports/figures/` as PNG, labelled axes, titles, readable fonts — they go into
+    the slides.
+11. **Never invent numbers.** Every number cited must come from executed code output.
 
 ## 4. Repository structure
 
 ```
-├── CLAUDE.md
-├── README.md
-├── SPRINTS.md
-├── requirements.txt
-├── data/
-│   ├── raw/             # git-ignored, the LoL CSVs
-│   └── processed/       # git-ignored, parquet outputs
-├── src/lol/
+├── CLAUDE.md · SPRINTS.md · README.md · requirements.txt
+├── data/                 # git-ignored; the Kaggle CSV goes in data/raw/
+├── src/
 │   ├── __init__.py
-│   ├── load.py          # read CSVs, dtypes, schema reconciliation across tiers
-│   ├── clean.py         # dedup, outlier policy, tier merge
-│   ├── features.py      # redundancy audit, difference features, archetype join
-│   ├── segments.py      # Q2 clustering helpers (fit/predict)
-│   ├── rules.py         # discretization + Apriori helpers
-│   ├── evaluate.py      # CV, metrics, ROC, model comparison
-│   └── viz.py           # shared plotting style
+│   └── lol_preprocessing.py   # Part A: validation, feature policy, reproducible split
 ├── notebooks/
-│   ├── 01_data_quality.ipynb
-│   ├── 02_features.ipynb
-│   ├── 03_classification.ipynb
-│   ├── 04_clustering.ipynb
-│   ├── 05_association_rules.ipynb
-│   └── 06_tier_transfer.ipynb
+│   ├── 01_data_preprocessing.ipynb   # Part A (done)
+│   ├── 02_classification.ipynb       # Part B — Q1
+│   ├── 03_clustering.ipynb           # Part C — Q2
+│   └── 04_association_rules.ipynb    # Part C — Q3
+├── scripts/execute_notebook.py
+├── tests/test_preprocessing.py
 ├── reports/
 │   ├── figures/
-│   └── report_outline.md
+│   └── part_a_findings.md
 └── docs/
     ├── decisions.md
     ├── agent_validation.md
-    └── trajectories/    # each member's exported agent history
+    └── trajectories/     # local only, git-ignored; goes in the submission ZIP
 ```
 
-## 5. Team ownership
+## 5. Team
 
-Each member runs **their own** Claude Code sessions, commits from **their own** GitHub account, and
-exports their own trajectory to `docs/trajectories/<name>/`. Workload is graded from commits and
-trajectories (Special Tutorial, slide 9).
-
-| Member | Owns | Files |
+| Member | Owns | Status |
 |---|---|---|
-| **A** | Data, EDA, visualization, Q4 tier transfer | `load.py`, `clean.py`, `features.py`, `viz.py` · nb 01, 02, 06 |
-| **B** | Q1 classification and its evaluation | `evaluate.py` · nb 03 |
-| **C** | Q2 clustering + Q3 association rules | `segments.py`, `rules.py` · nb 04, 05 |
+| **A** | Data preprocessing, EDA, figures | **done** |
+| **B** | Q1 classification and evaluation | next |
+| **C** | Q2 clustering, Q3 association rules | next |
 
-Shared files (`docs/decisions.md`, `docs/agent_validation.md`) are **append-only**: add at the
-bottom, pull right before you write, and if git reports a conflict there, keep both sides.
+Part A hands over `prepare_data()` from `src/lol_preprocessing.py`, returning
+`X_train` (7,903 × 12), `X_test` (1,976 × 12) and aligned labels. B and C call it rather than
+reading a stored file, so nobody works from a stale artefact.
+
+Workload is evidenced by commits and per-member agent trajectories (Special Tutorial, slide 9).
+Shared files (`docs/decisions.md`, `docs/agent_validation.md`) are **append-only**.
 
 ## 6. Deadlines
 
-- **Presentation: Friday 20 Nov 2026.** Slides must be built from executed figures only.
-- **Project materials (code, report, trajectories): 23:59 on 6 Dec 2026.** Submitted as one ZIP
-  with a README containing a **public** GitHub repo URL, the code folder, the report as PDF with
-  each member's contributions listed, and each member's agent-use trajectory.
+- **Presentation: Friday 20 Nov 2026.** Slides built from executed figures only.
+- **Project materials: 23:59 on 6 Dec 2026** — one ZIP with a README containing the public GitHub
+  repo URL, the code, the report as PDF with each member's contributions, and each member's
+  agent-use trajectory.

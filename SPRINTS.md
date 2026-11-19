@@ -1,171 +1,109 @@
-# Workstreams — two days to the presentation
+# Workstreams
 
-Full plan, including commit messages and the Friday slide split, is in the team doc.
-This file is the offline copy of who does what.
+**Presentation: Friday 20 Nov 2026. Project materials: 6 Dec 2026.**
 
-**Presentation: Friday 20 Nov 2026. Project materials (code, report, trajectories): 6 Dec 2026.**
-
-Dependency: A ships a minimal processed table tonight. B and C build against it from Thursday
-morning. B and C are not blocked tonight — reading the brief and drafting their approach are real
-commits.
+Part A is done. B and C can both start now and do not depend on each other.
 
 ---
 
-## A — data, EDA, tier transfer
+## A — preprocessing and EDA  ·  DONE
 
-Owns `load.py`, `clean.py`, `features.py`, `viz.py` · notebooks 01, 02, 06
+`src/lol_preprocessing.py`, `notebooks/01_data_preprocessing.ipynb`, 8 figures,
+`reports/part_a_findings.md`, 13 passing tests.
 
-1. Load both tiers. **Measure** the schemas; do not assume they match.
-2. Reconcile columns, merge, dedupe on `gameId` across tiers, record what differed.
-3. Redundancy audit: quantify how many of the 38 features are mirrors or arithmetic
-   restatements of each other. This is the headline finding — measure it, do not estimate it.
-4. Quality: ranges, implausible values, outlier policy. Check `blueWardsPlaced` in particular.
-5. EDA figures for the slides, 150 dpi, into `reports/figures/`.
-6. Ship `data/processed/games.parquet` — minimal first, refined after.
-7. Q4: apply B's final model across tiers and report what changes.
+**What it hands over.** Call `prepare_data()` — do not read a stored file:
 
-### A's sprints
+```python
+import sys; sys.path.insert(0, "src")
+from lol_preprocessing import prepare_data, FEATURE_NAMES, TARGET
 
-| | Sprint | Status | Blocked by |
-|---|---|---|---|
-| **A1** | Pipeline, quality audit, `games.parquet` | **done** — PR #1 | — |
-| **A2** | Feature–target EDA: distributions, correlation structure, which of the 14 carry signal | next | — |
-| **A3** | Q4 transfer harness — train-on-Diamond / test-on-Challenger, taking any fitted estimator | next | — |
-| **A4** | Q4 results with B's final model | Thursday evening | B's A1 model |
-| **A5** | A's slides (1, 2, 3, 4, 11) and report sections | Thursday night | A2–A4 |
+data = prepare_data()
+data.X_train   # (7903, 12)
+data.X_test    # (1976, 12)
+data.y_train, data.y_test
+```
 
-**A1 — done.** `load.py`, `clean.py`, `features.py`, `viz.py`, notebook 01, four figures,
-D01–D10, V01–V04. 33,755 games, 14 features, zero missing values.
+**The 12 predictors**, all blue-minus-red differences:
+`blueGoldDiff`, `blueExperienceDiff`, `killsDiff`, `assistsDiff`, `minionsDiff`,
+`jungleMinionsDiff`, `wardsPlacedDiff`, `wardsDestroyedDiff`, `firstBloodDiff`, `dragonsDiff`,
+`heraldsDiff`, `towersDestroyedDiff`.
 
-**A2 — feature–target EDA.** The collapse proved the 14 features are linearly independent of
-each other; it did not show which of them say anything about the result. Deliverable:
-notebook 02 plus figures showing each feature's distribution, its relationship to `blue_wins`,
-and the residual correlation structure. This also hands B a head start on feature selection —
-but B decides what the model uses; A only describes what is there.
+**Numbers you can rely on** (training data only — the split happened first):
 
-**A3 — transfer harness.** `src/lol/transfer.py`: a function taking any fitted sklearn
-estimator, training on Diamond, evaluating on Challenger, and reporting the metric deltas.
-Built before B's model exists so A4 is a swap, not a build. Notebook 06 is scaffolded with a
-placeholder estimator so it runs end to end from the start.
+| | |
+|---|---|
+| Source | 9,879 matches, 40 columns, 0 missing, 0 duplicate `gameId` |
+| Target | blue wins 49.904% — near balanced |
+| Split | 80/20 stratified, `random_state=42`, nothing fit before splitting |
+| Strongest predictors | `blueGoldDiff` 0.511, `blueExperienceDiff` 0.489, `killsDiff` 0.479 |
+| Weakest | `wardsPlacedDiff` 0.016 |
+| Correlated pairs ≥ 0.75 | gold/kills 0.918, gold/experience 0.896, kills/assists 0.831 |
 
-**A4 — Q4 results.** Swap in B's chosen model. The question: does a model fit on Diamond hold
-at Challenger, and do the same features matter at both skill levels?
+**Open item A left honestly unresolved:** ward counts reach 276 in training. Hundreds of wards at
+ten minutes is implausible, but the CSV cannot establish whether they are real or extraction
+artefacts, so all rows were retained and nothing was clipped. Worth one line in the report.
 
-**A5 — communication.** Slides 1–4 and 11 per the team doc, plus A's report sections.
+---
 
 ## B — Q1 classification and evaluation
 
-Owns `evaluate.py` · notebook 03
+Deliverable: `notebooks/02_classification.ipynb` plus an evaluation module in `src/`.
 
-1. Preprocessing inside sklearn Pipelines so nothing is fit outside the CV folds.
-2. Feature selection: correlation filtering, mutual information, tree importance. Report what
-   was removed and why.
-3. Decision Tree, KNN, SVM. No Naive Bayes (see decision D03).
-4. Cross-validation, stratified. Report precision, recall, F1 and ROC-AUC with mean ± std.
-5. Pick a final model, retrain, evaluate once on the held-out set.
-6. Interpretation: depth-limited tree plot, feature importances, in plain language.
+| | Sprint |
+|---|---|
+| **B1** | Nested CV harness — outer 5-fold stratified, inner 3-fold for hyperparameters |
+| **B2** | Feature selection three ways — correlation, mutual information, tree importance — and where they disagree |
+| **B3** | Decision Tree, KNN, SVM, all inside Pipelines |
+| **B4** | Compare, choose, evaluate **once** on `X_test` |
+| **B5** | Interpretation — depth-limited tree plot, feature importances, plain language |
 
-### B's sprints  ·  owner: Andrea (own machine, Codex)
+**Why nested CV.** If hyperparameters are chosen on the same folds that then report the score,
+the score is optimistic — the choice has already seen the data it is graded on. The rubric names
+nested cross-validation explicitly, so a plain `cross_val_score` leaves marks on the table.
+Report precision, recall, F1 and ROC-AUC as mean ± std across the outer folds.
 
-#### Getting set up
+**Pipelines, not pre-scaled data.** KNN and SVM need scaling; the tree does not. Putting the
+scaler inside the Pipeline means it is fit per fold rather than on everything, and makes that
+difference explicit instead of hidden.
 
-The repo has no data in it — `data/` is git-ignored and always will be. You regenerate the
-modelling table locally.
+**No Naive Bayes** — the course did not teach it (D03).
 
-```
-git clone https://github.com/agj2206/Predicting-League-of-Legends-match
-cd Predicting-League-of-Legends-match
-git checkout -b model-training origin/main
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-```
+**Interpretation caveat.** `blueGoldDiff` and `killsDiff` correlate at 0.918, so whichever the
+tree splits on first will look far more important than the other. Any claim like "gold matters
+more than kills" has to survive that.
 
-Then download both CSVs into `data/raw/` (links in README.md) and run
-`notebooks/01_data_quality.ipynb` top to bottom. Its last cell writes
-`data/processed/games.parquet` — **33,755 games, 14 features, zero missing values.** That file
-is your input; you should not need to touch `load.py`, `clean.py` or `features.py`.
+**Measured timings on this data** — nothing here is slow, one fold is ~7,900 rows:
 
-Check `git config user.email` matches the email on your GitHub account before your first
-commit, or GitHub attributes your work to nobody.
+| estimator | one fit |
+|---|---|
+| Decision Tree | full nested CV in ~3 s |
+| KNN, k=25 | 0.05 s |
+| SVC, RBF kernel | 0.91 s |
 
-**Your trajectory.** Export your Codex conversation history at the end of each session and keep
-it locally — it goes in the final submission ZIP, not in the repo (`*.jsonl` and friends are
-git-ignored on purpose). Together with your commits it is how your individual workload is
-graded, so export as you go rather than on 6 December.
+The RBF SVM is affordable — use it, not `LinearSVC`.
 
-#### What to build
+**Sanity tripwire.** A depth-limited tree under nested CV lands around **ROC-AUC 0.80** on this
+data. Much higher means something leaked; check before celebrating.
 
-Q1 trains and tests **within Diamond only** (9,879 of the 33,755 games — filter `tier ==
-"diamond"`). Challenger is held out entirely as Q4's transfer target. That is decision D10;
-read `docs/decisions.md` D09–D13 and `notebooks/02_feature_eda.ipynb` before starting, because
-A already measured several things you would otherwise rediscover.
-
-| | Sprint | Deliverable |
-|---|---|---|
-| **B1** | `src/lol/evaluate.py` — nested CV harness, metrics, ROC | module + commit |
-| **B2** | Feature selection, three ways, and where they disagree | notebook 03 section |
-| **B3** | Decision Tree, KNN, SVM, all inside Pipelines | notebook 03 section |
-| **B4** | Compare, choose, evaluate once on held-out | comparison table + figures |
-| **B5** | Interpretation: tree plot, importances, plain language | figures + write-up |
-
-**B1 — nested CV.** Outer 5-fold stratified for an honest estimate, inner 3-fold for
-hyperparameters. If hyperparameters are chosen on the same folds that then report the score,
-the score is optimistic — the choice has already seen the data it is graded on. The rubric
-names nested cross-validation explicitly, so a plain `cross_val_score` leaves marks on the
-table. Report precision, recall, F1 and ROC-AUC as mean ± std across the outer folds.
-
-**B2 — feature selection.** Correlation, mutual information, tree importance. Report where they
-disagree, not just the union — see D13, where they disagreed sharply and the interesting
-feature was the one two methods called worthless.
-
-**B3 — the three models.** No Naive Bayes (D03: not taught in this course). All preprocessing
-inside sklearn Pipelines so scaling is fit per fold, never on the full data — fitting a scaler
-before splitting leaks the test fold's distribution into training. KNN and SVM need scaling;
-the tree does not, and the Pipeline makes that difference explicit rather than hidden.
-
-**B4 — choose once, test once.** Retrain the winner on the full training split and score it a
-single time on the held-out set. Scoring a test set repeatedly and keeping the best result is
-how a test set stops being a test set.
-
-**B5 — interpretation, with A's caveat attached.** `kills_diff` and `total_gold_diff` correlate
-at 0.92, so whichever the tree splits on first will look far more important than the other. Any
-claim like "gold matters more than kills" has to survive that.
-
-#### Timings, already measured on this data
-
-Nothing here is slow. One fold of Diamond is 7,903 rows.
-
-| estimator | one fit | nested CV estimate |
-|---|---|---|
-| Decision Tree (full nested CV, 6-point grid) | — | **2.7 s total** |
-| KNN, k=25 | 0.05 s | well under a minute |
-| SVC, RBF kernel | 0.91 s | a few minutes |
-
-**The RBF SVM is affordable — use it.** The `LinearSVC` fallback in CLAUDE.md is not needed and
-would be a worse model for no gain.
-
-#### Handy numbers from A's work
-
-* Diamond: 9,879 games, blue wins 0.4990 — near balanced, so accuracy is readable here, but
-  never report it alone.
-* A depth-limited tree under nested CV reaches **ROC-AUC ≈ 0.80** on Diamond. If a model comes
-  in far above that, suspect a leak before celebrating.
-* The strongest single feature is `total_gold_diff` (correlation 0.511 with the result on
-  Diamond), followed by `kills_diff`, `avg_level_diff` and `assists_diff` — all measuring the
-  same underlying lead, which is why they correlate so tightly.
+---
 
 ## C — Q2 clustering and Q3 association rules
 
-Owns `segments.py`, `rules.py` · notebooks 04, 05
+Deliverables: `notebooks/03_clustering.ipynb`, `notebooks/04_association_rules.ipynb`, plus
+helpers in `src/`. Add `mlxtend` from `requirements.txt`.
 
-1. Scale and log-transform skewed features; explain why scaling is required for distance methods.
-2. K-means: choose K by elbow **and** silhouette over K = 2..10.
-3. Compare with Hierarchical (Ward, dendrogram on a sample) and DBSCAN (eps from a k-distance
-   plot). Pick one, justify it.
-4. Profile each cluster and give it a business name. These are the game archetypes.
-5. Discretise: compare equal-width vs equal-frequency, choose one, justify it.
-6. Apriori with `blue_wins` as the consequent. Justify minsup and minconf. Prune redundant rules.
-7. Cross-check the top rules against B's tree splits. Agreements and disagreements both matter.
+| | Sprint |
+|---|---|
+| **C1** | Scale and log-transform skewed features; explain why scaling is required for distance methods |
+| **C2** | K-means — choose K by elbow **and** silhouette over K = 2..10 |
+| **C3** | Compare with Hierarchical (Ward, dendrogram on a sample) and DBSCAN (eps from a k-distance plot); pick one and justify it |
+| **C4** | Profile each cluster, give it a business name — these are the game archetypes |
+| **C5** | Discretise: compare equal-width vs equal-frequency, choose one, justify it |
+| **C6** | Apriori with `blueWins` as the consequent; justify minsup and minconf; prune redundant rules |
+| **C7** | Cross-check the top rules against B's tree splits — agreements and disagreements both matter |
+
+Clustering is unsupervised, so it can use the 12 predictors without the target. Keep the target
+out of the clustering input and bring it back only to profile the resulting clusters.
 
 ---
 
@@ -174,9 +112,8 @@ Owns `segments.py`, `rules.py` · notebooks 04, 05
 See CLAUDE.md §3. The ones that break quietly:
 
 - `gameId` is never a feature.
-- **10-minute data only** — the Challenger source also ships a 15-minute file.
-- Dedupe on `gameId` across tiers *before* splitting.
+- Never refit the split or compute statistics on `X_test` — Part A already split, use it as given.
 - Scaling and imputation go inside Pipelines.
-- Drop mirror columns before reading feature importances.
 - `random_state=42` everywhere.
+- Run `python -m unittest discover -s tests` before committing.
 - No number in a slide, doc or markdown cell that did not come from executed code.

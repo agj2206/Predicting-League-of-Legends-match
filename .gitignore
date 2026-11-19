@@ -1,38 +1,39 @@
-# Data is never committed (CLAUDE.md §2).
-# The two folders are kept (via .gitkeep) so a fresh clone has somewhere to put the CSVs,
-# but everything inside them is ignored.
-data/*
-!data/raw/
-!data/processed/
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+# Local datasets and derived data must stay out of Git.
+data/
+Local_Datasets*/
+*.csv
+*.csv.gz
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.zip
 
-# Environments
+# Python environments, caches, notebook checkpoints, and local configuration.
 .venv/
 venv/
 env/
-
-# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-
-# Notebooks
 .ipynb_checkpoints/
-
-# Kaggle credentials — never commit
-kaggle.json
-.kaggle/
-
-# OS / editors
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.env
+.env.*
 .DS_Store
-.vscode/
-.idea/
 
-# Course lecture PDFs — not ours to redistribute
+# Reproduction logs and machine-specific environment snapshots.
+reports/local/
+
+# PDFs del curso — no son nuestros para redistribuir
 pdfs/
 
-# Agent trajectories stay local — they go in the submission ZIP, not the repo
+# Trayectorias de agente: locales, van en el ZIP de entrega
 *.jsonl

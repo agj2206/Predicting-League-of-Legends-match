@@ -1,23 +1,12 @@
-# CDS3004 Olist Review-Risk — pinned environment (CLAUDE.md §3.4)
-# Python 3.12.1
-# Install:  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-
-# Core data handling
+# Tested with Python 3.11; exact direct versions make the notebook reproducible.
+numpy==2.1.3
 pandas==2.2.3
-numpy==1.26.3
-pyarrow==19.0.1
-
-# Modeling (course techniques only: sklearn + mlxtend, CLAUDE.md §3.5)
-scikit-learn==1.5.2
-scipy==1.16.3
-mlxtend==0.23.4
-
-# Figures
-matplotlib==3.8.2
+matplotlib==3.9.2
 seaborn==0.13.2
+scikit-learn==1.5.2
+nbformat==5.10.4
+nbclient==0.10.0
+ipykernel==6.29.5
 
-# Notebooks
-jupyter==1.1.1
-jupyterlab==4.6.6
-notebook==7.6.5
-ipykernel==7.4.0
+# Parte C (reglas de asociacion, Apriori)
+mlxtend==0.23.4

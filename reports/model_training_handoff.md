@@ -1,28 +1,33 @@
-# Parte B → Model Evaluation
+# Part B → Model Evaluation
 
-Questo documento accompagna `README_PART_B.md`. Nessun risultato del Test Set
-viene calcolato nella Parte B; la futura Model Evaluation resta da svolgere.
+This document accompanies `README_PART_B.md`. Part B does not compute test-set
+performance; the subsequent model evaluation stage remains to be completed.
 
-## Cosa ricevi
+## Delivered artifacts
 
-Il run predefinito è `diamond_5x3_seed42`. In `reports/model_training/<run_id>/`
-trovi `run_metadata.json`, `selection.json`, `best_params.json`, `model_comparison.json`,
-`nested_cv_scores.json`, i tre `cv_results_*.json` finali e i 15 risultati in `inner_cv/`.
-I CSV duplicano questi risultati e possono essere condivisi localmente.
+The default run is `diamond_5x3_seed42`. The directory
+`reports/model_training/<run_id>/` contains `run_metadata.json`,
+`selection.json`, `best_params.json`, `model_comparison.json`,
+`nested_cv_scores.json`, the three final `cv_results_*.json` files, and the
+15 search results in `inner_cv/`. CSV files contain the same results and may be
+shared locally.
 
-`models/part_b/<run_id>/` contiene quattro Pipelines già fittate sulle 7.903 partite
-di training: `dummy`, `decision_tree`, `knn`, `svm`. KNN e SVM includono lo scaler;
-gli altri due non lo richiedono. Il singolo artefatto SVM contiene il kernel scelto
-fra Linear e RBF tramite la Grid Search finale. Non occorre un secondo fit.
+`models/part_b/<run_id>/` contains four pipelines already fitted on the 7,903
+training matches: `dummy`, `decision_tree`, `knn`, and `svm`. KNN and SVM
+include their fitted scalers; the other two models do not require scaling.
+The single SVM artifact contains the kernel selected from linear and RBF
+candidates during the final grid search. No further fitting is required.
 
-`data/processed/part_b/<run_id>/cv_manifest.json` conserva gli ID dei fold del solo
-Training Set. Il manifest della Parte A rimane in `data/processed/split_manifest.json`.
-Le due famiglie di manifest non contengono label o feature.
+`data/processed/part_b/<run_id>/cv_manifest.json` records fold assignments
+using only training-set match IDs. The Part A manifest remains at
+`data/processed/split_manifest.json`. Neither type of manifest contains labels
+or feature values.
 
-## Preparazione e caricamento
+## Environment preparation and loading
 
-Usa lo stesso dataset Diamond, Python 3.11 e le versioni di
-`requirements-part-b.txt`. Esempio di caricamento, da eseguire dalla repository:
+Use the same Diamond dataset, Python 3.11, and the versions pinned in
+`requirements-part-b.txt`. The following loading example should be run from
+the repository root:
 
 ```python
 from src.lol_preprocessing import prepare_data
@@ -32,62 +37,69 @@ run_id = "diamond_5x3_seed42"
 results = load_run_results(run_id=run_id)
 selected = results["metadata"]["selected_model"]
 model = load_final_model(selected, run_id=run_id)
-prepared = prepare_data()  # riottiene lo split originale, senza rifittare nulla
+prepared = prepare_data()  # Reconstruct the original split without refitting anything.
 ```
 
-Queste istruzioni non eseguono Model Evaluation. Quando inizierà quella fase,
-usa `prepared.X_test` **non scalato** e con le colonne originali nell'ordine
-registrato. Passalo direttamente a `model.predict`, senza `fit`, `fit_transform`
-o nuovi scaler. Per ROC-AUC usa `decision_function` quando disponibile (SVM),
-altrimenti `predict_proba` selezionando la colonna della classe `1`.
+These instructions do not perform model evaluation. When that stage begins,
+use `prepared.X_test` **without scaling it separately**, retaining the original
+columns in the recorded order. Pass it directly to `model.predict`; do not
+call `fit` or `fit_transform`, or introduce a new scaler. For ROC-AUC, use
+`decision_function` when available (SVM); otherwise, use `predict_proba` and
+select the column corresponding to class `1`.
 
-La target positiva è `blueWins=1` (Blue wins). Precision, Recall e F1 della CV
-sono binary con `zero_division=0`. Per la valutazione finale puoi aggiungere
-Confusion Matrix e risultati per entrambe le classi, mantenendo le cinque metriche
-comuni. L'Accuracy è il criterio principale dichiarato prima dell'esperimento.
+The positive class is `blueWins=1` (Blue wins). CV precision, recall, and F1
+are binary metrics with `zero_division=0`. The final evaluation may also include
+a confusion matrix and results for both classes, while retaining the five
+common metrics. Accuracy is the primary criterion specified before the
+experiment.
 
-Controlla che `run_metadata.json` abbia `status="complete"` e
-`held_out_test_used=false`, e che il checksum sorgente sia quello originale.
-`load_final_model` verifica checksum del modello, schema delle feature, versioni
-dei pacchetti e Python major/minor. Se mancano i binari, i JSON aggregati sono
-ancora consultabili ma non bastano per fare predizioni: rigenera gli artefatti.
+Confirm that `run_metadata.json` reports `status="complete"` and
+`held_out_test_used=false`, and that the source checksum matches the original
+file. `load_final_model` checks the model checksum, feature schema, package
+versions, and Python major/minor version. If the binary artifacts are missing,
+the aggregate JSON results remain readable but cannot generate predictions;
+regenerate the artifacts.
 
-## Regole della valutazione finale
+## Rules for final evaluation
 
-La famiglia scelta è congelata in `selection.json`, sulla base della Outer mean
-Accuracy di Nested CV 5×3, prima dei tuning finali. I tre algoritmi appresi hanno
-ricevuto lo stesso budget di fold e le griglie documentate; la Baseline non è tunata.
-Il confronto finale sul test può includere tutti e quattro i modelli, ma non
-deve essere usato per cambiare il vincitore, gli Hyperparameters, le soglie,
-le feature o le regole di preprocessing.
+The selected family is frozen in `selection.json`, based on mean outer-fold
+accuracy from nested CV 5×3, before the final tuning searches. The three learned
+model families used the same fold structure and their documented search grids;
+the baseline was not tuned.
+The final test comparison may include all four models, but its results must
+not be used to change the selected family, hyperparameters, thresholds,
+features, or preprocessing rules.
 
-`cv_results_*` descrive la Grid Search finale a 3 fold, usata per scegliere i
-parametri. Il campo `split*_test_*` di sklearn indica un Validation Fold interno,
-non il Test Set indipendente. Per presentare il confronto CV usa invece
-`model_comparison.json` e `nested_cv_scores.json` (Outer Folds).
-Le SD sono sample SD fra cinque fold, non Confidence Intervals.
+`cv_results_*` describes the final 3-fold grid search used for hyperparameter
+selection. The scikit-learn field pattern `split*_test_*` refers to an internal
+validation fold, not the independent test set. To present the CV comparison,
+use `model_comparison.json` and `nested_cv_scores.json`, which summarize the
+outer folds. Reported outer-fold standard deviations are sample standard
+deviations across five folds, not confidence intervals.
 
-Se i modelli sono vicini, evita affermazioni di superiorità certa. Il test fornirà
-una stima finale per il campione riservato; non dimostrerà generalizzazione ad
-altri rank, giocatori o patch. Non addestrare sui 9.879 record prima di valutare:
-perderesti l'indipendenza del Test Set.
+When models perform similarly, avoid claims of definitive superiority.
+The test set will provide a separate final estimate for the held-out sample;
+it will not establish generalization to other ranks, players, or patches.
+Do not train on all 9,879 records before evaluation, as this would compromise
+test-set independence.
 
-## GitHub e passaggio dei file ignorati
+## GitHub sharing and transfer of ignored files
 
-La `.gitignore` originale esclude `.joblib`, tutti i `.csv` e `data/`. Non è stata
-modificata. I JSON aggregati, questo documento, `README_PART_B.md`, i test, il
-codice e il notebook eseguito possono essere condivisi successivamente via GitHub.
-Nessun CSV originale, riga del dataset o predizione individuale compare nei JSON
-pubblicabili o nel notebook della Parte B.
+The original `.gitignore` excludes `.joblib` files, all `.csv` files, and
+`data/`; it has not been changed. Aggregate JSON files, this document,
+`README_PART_B.md`, tests, source code, and the executed notebook may be shared
+subsequently through GitHub. The shareable JSON files and the Part B notebook
+contain no original CSV contents, dataset rows, or individual predictions.
 
-Per rigenerare, segui i comandi in `README_PART_B.md`: test rapidi, training,
-esecuzione del notebook. Se il run condiviso è già presente, scegli un nuovo
-`--run-id` e usa lo stesso ID nel caricamento. I vecchi risultati non vengono
-sovrascritti; non cambiare seed o griglia per ottenere un risultato più favorevole.
+To regenerate the artifacts, follow the commands in `README_PART_B.md`:
+run the quick tests, complete training, and notebook execution. If the shared
+run already exists, choose a new `--run-id` and use that same ID when loading
+the results. Existing results are not overwritten; do not change the seed or
+search grid to obtain a more favorable outcome.
 
-In alternativa, il membro che ha eseguito il training può passarti privatamente
-le cartelle `models/part_b/<run_id>/`, `reports/model_training/<run_id>/` e
-`data/processed/part_b/<run_id>/`, preservando i percorsi relativi. Non occorre
-includere i binari in Git né modificare `.gitignore`. Carica soltanto artefatti
-`joblib` provenienti dal membro del gruppo previsto. Il dataset originale deve
-essere disponibile localmente anche al destinatario.
+Alternatively, the group member who performed training can privately transfer
+`models/part_b/<run_id>/`, `reports/model_training/<run_id>/`, and
+`data/processed/part_b/<run_id>/`, preserving their relative paths. There is
+no need to include binary artifacts in Git or change `.gitignore`. Load only
+`joblib` artifacts received from the intended group member. The recipient
+must also have a local copy of the original dataset.

@@ -1,191 +1,213 @@
-# Parte B — Model Training (CDS3004)
+# Part B — Model Training (CDS3004)
 
 **Research Question:** Can we predict the winning team in a League of Legends match
 using only statistics available after the first 10 minutes?
 
-Si usa esclusivamente il CSV Diamond originale e il Preprocessing della Parte A,
-senza modificarne codice, feature, split o EDA. La target è `blueWins`: `1` = Blue
-wins; `0` = Red wins. I 12 predictor sono differenze Blue − Red a 10 minuti.
+This stage uses only the original Diamond CSV and reuses the preprocessing
+implemented in Part A without changing its code, features, data split, or
+exploratory data analysis (EDA). The target is `blueWins`: `1` denotes a Blue
+win and `0` a Red win. The 12 predictors represent Blue − Red differences
+measured at the 10-minute mark.
 
-## Riproduzione locale
+## Local reproduction
 
-Usare Python 3.11 e l'ambiente `.venv` esistente. Le versioni aggiuntive della
-Parte B sono fissate in `requirements-part-b.txt`, che include il file originale
-`requirements.txt`. Non è necessario eseguire nuovamente il notebook della Parte A.
+Use Python 3.11 and the existing `.venv` environment. Additional dependencies
+for Part B are pinned in `requirements-part-b.txt`, which includes the original
+`requirements.txt`. There is no need to rerun the Part A notebook.
 
-Se occorre preparare un ambiente su un altro computer, installare le dipendenze
-con `python -m pip install -r requirements-part-b.txt` nel proprio virtual environment.
-Il training non scarica dati né installa pacchetti.
+When setting up an environment on another computer, install the dependencies
+with `python -m pip install -r requirements-part-b.txt` inside a virtual environment.
+The training workflow does not download data or install packages.
 
-Il membro del gruppo deve procurarsi localmente lo stesso file
-`high_diamond_ranked_10min.csv`, senza rinominarlo. Può collocarlo in `data/raw/`,
-usare la cartella `Local_Datasets` accanto alla repository, oppure passare
+Each group member must have a local copy of the same
+`high_diamond_ranked_10min.csv` file, retaining its original name. Place it in
+`data/raw/`, use the `Local_Datasets` directory alongside the repository, or pass
 `--data-path /percorso/high_diamond_ranked_10min.csv`.
-`LOL_DATA_PATH` è supportata dall'interfaccia della Parte A.
-Il checksum atteso è
+The Part A interface also supports `LOL_DATA_PATH`.
+The expected checksum is
 `82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6`.
-Non cambiare il checksum o lo split per accettare un dataset diverso.
+Do not change the checksum or the data split to accommodate a different dataset.
 
-Dalla radice della repository:
+Run the following commands from the repository root:
 
 ```bash
-# 1. Test rapidi della Parte B, su un sottoinsieme del Training Set Diamond.
+# 1. Run the quick Part B tests on a subset of the Diamond training set.
 .venv/bin/python -B -m unittest discover -s tests -p test_model_training.py -v
 
-# 2. Training completo: 5 Outer Folds, 3 Inner Folds; solo training data.
+# 2. Run the complete training workflow: 5 outer folds, 3 inner folds; training data only.
 .venv/bin/python -B scripts/train_models.py --n-jobs 2
 
-# 3. Notebook con risultati, spiegazioni e grafici, senza rifare il training.
+# 3. Execute the notebook to display results, explanations, and figures without retraining.
 .venv/bin/python -B scripts/execute_training_notebook.py
 
-# 4. Suite completa, inclusi i test originali della Parte A.
+# 4. Run the complete test suite, including the original Part A tests.
 .venv/bin/python -B -m unittest discover -s tests -v
 ```
 
-Il run predefinito si chiama `diamond_5x3_seed42`. I risultati esistenti non vengono
-sovrascritti. Per una verifica indipendente usare, per esempio:
+The default run is named `diamond_5x3_seed42`. Existing results are never
+overwritten. To reproduce the experiment under a separate run name, use:
 
 ```bash
 .venv/bin/python -B scripts/train_models.py --run-id diamond_reproduction --n-jobs 2
 .venv/bin/python -B scripts/execute_training_notebook.py --run-id diamond_reproduction
 ```
 
-`--n-jobs 1` permette un'esecuzione senza worker paralleli. Il loop esterno rimane
-sempre sequenziale; anche i thread interni di BLAS/OpenMP sono limitati. `n_jobs`
-non cambia i fold, le griglie o il criterio di selezione.
-Un run interrotto ha stato `running` o `failed`: non deve essere usato come risultato
-finale. Per ripartire scegliere un nuovo `--run-id`; non c'è resume automatico.
+Use `--n-jobs 1` to run without parallel workers. The outer loop always runs
+sequentially, and the number of internal BLAS/OpenMP threads is also limited.
+Changing `n_jobs` does not change the folds, search grids, or selection criterion.
+An interrupted run has status `running` or `failed` and must not be treated as
+a completed result. To restart, choose a new `--run-id`; automatic resumption is
+not implemented.
 
-## Metodo e scelta del modello
+## Methodology and model selection
 
-`load_training_data()` richiama `prepare_data()` e restituisce soltanto `X_train`,
-`y_train` e la provenienza. Il CSV contiene 9.879 partite, ma questa fase usa solo
-le 7.903 partite del Training Set. Lo split 80/20 originale, le feature e
-`random_state=42` restano fissi. La preparazione crea gli oggetti test come parte
-del contratto esistente e può verificarne gli ID nel manifest; i valori di
-`X_test` e `y_test` non sono passati a fit, scoring, tuning o selezione.
+`load_training_data()` calls `prepare_data()` and returns only `X_train`,
+`y_train`, and provenance metadata. The CSV contains 9,879 matches, but this stage
+uses only the 7,903 matches in the training partition. The original 80/20 split,
+feature representation, and `random_state=42` remain fixed. Data preparation
+creates the test objects as part of the existing interface and may verify their
+IDs in the split manifest. However, the values in `X_test` and `y_test` are not
+passed to fitting, scoring, tuning, or model selection.
 
-La Nested Stratified Cross-Validation usa 5 Outer Folds e 3 Inner Folds, con
-`shuffle=True`, `random_state=42`. Per ciascun Outer Fold, `GridSearchCV` sceglie
-gli Hyperparameters sui soli Inner Folds. Il miglior modello viene rifittato
-sull'Outer Training Fold e valutato sull'Outer Validation Fold, escluso dal tuning.
-Gli stessi fold sono usati per tutti gli algoritmi.
+Nested stratified cross-validation uses 5 outer folds and 3 inner folds, with
+`shuffle=True` and `random_state=42`. Within each outer training fold,
+`GridSearchCV` selects hyperparameters using only the inner folds. The selected
+pipeline is then refitted on the entire outer training fold and evaluated on the
+outer validation fold, which was excluded from tuning. All algorithms use the
+same fold assignments.
 
-| Famiglia | Pipeline e Hyperparameters | Configurazioni |
+| Model family | Pipeline and hyperparameters | Configurations |
 |---|---|---:|
-| Baseline | `DummyClassifier(strategy="most_frequent", random_state=42)` | Nessun tuning |
-| Decision Tree | Nessuno scaling; `criterion=[gini, entropy]`, `max_depth=[3,5,8,12,None]`, `min_samples_leaf=[1,5,10,20]` | 40 |
+| Baseline | `DummyClassifier(strategy="most_frequent", random_state=42)` | No tuning |
+| Decision Tree | No scaling; `criterion=[gini, entropy]`, `max_depth=[3,5,8,12,None]`, `min_samples_leaf=[1,5,10,20]` | 40 |
 | KNN | `StandardScaler` → KNN; `n_neighbors=[3,5,11,21,41,81]`, `weights=[uniform,distance]`, Minkowski `p=[1,2]` | 24 |
-| SVM | `StandardScaler` → SVC; Linear con `C=[0.01,0.1,1,10]`; RBF con gli stessi `C` e `gamma=[scale,0.01,0.1,1]` | 20 |
+| SVM | `StandardScaler` → SVC; linear kernel with `C=[0.01,0.1,1,10]`; RBF kernel with the same `C` values and `gamma=[scale,0.01,0.1,1]` | 20 |
 
-La Baseline predice la classe più frequente del proprio Training Fold. Non usa
-le feature per apprendere relazioni con la target. È un riferimento diagnostico,
-non partecipa alla selezione fra Decision Tree, KNN e SVM. Se i modelli appresi non
-la superano, questo viene segnalato esplicitamente.
+The baseline predicts the most frequent class in its training fold. It does not
+learn relationships between the predictors and the target. It serves as a
+diagnostic reference and is excluded from selection among Decision Tree, KNN,
+and SVM. If the selected learned model fails to outperform the baseline, the
+workflow explicitly reports this outcome.
 
-KNN e SVM imparano media e deviazione standard dentro ogni fit della Pipeline.
-Non si scala mai tutto `X_train` prima della CV. Decision Tree e Baseline non
-includono uno scaler. L7 propone anche scaling in `[0,1]`: qui si usa invece
-`StandardScaler`, come richiesto, che non impone quell'intervallo.
+For KNN and SVM, feature means and standard deviations are estimated within each
+pipeline fit. The full `X_train` is never scaled before cross-validation.
+Decision Tree and the baseline do not include a scaler. Lecture L7 also presents
+scaling to `[0,1]`; this project uses `StandardScaler` as specified, which
+standardizes features rather than constraining them to that interval.
 
-La metrica primaria è **Accuracy**, perché le classi del training sono quasi
-bilanciate e non sono definiti costi asimmetrici degli errori. Si registrano anche
-**Precision, Recall, F1 e ROC-AUC**. La classe positiva è Blue (`1`);
-Precision/Recall/F1 sono binary, non macro. In assenza di predizioni positive,
-Precision/F1 sono riportate a zero con `zero_division=0`, senza warning nascosti.
-Per ROC-AUC si usano probabilità della classe `1` per Tree/KNN/Dummy e
-`decision_function` per SVM. `probability=False`: nessuna calibrazione o soglia
-aggiuntiva viene appresa. Le altre metriche usano `predict`.
+The primary metric is **accuracy**, because the training classes are nearly
+balanced and no asymmetric error costs have been specified. **Precision, recall,
+F1, and ROC-AUC** are also recorded. Blue (`1`) is the positive class;
+precision, recall, and F1 are binary metrics rather than macro averages.
+When no positive predictions are made, precision and F1 are reported as zero
+using `zero_division=0`. This convention is explicit rather than left to an
+undefined-metric warning.
+ROC-AUC uses class-`1` probabilities for Tree/KNN/Dummy and
+`decision_function` for SVM. With `probability=False`, no probability calibration
+is performed, and no additional classification threshold is learned. The
+remaining metrics use `predict`.
 
-Il confronto usa media e **sample standard deviation (ddof=1)** sui 5 Outer Folds.
-La SD descrive variabilità e non è un Confidence Interval. Vince la famiglia con
-la maggiore Outer mean Accuracy. Parità esatte: SD minore, poi ordine fisso
-Decision Tree → KNN → SVM. Nelle singole Grid Search, parità esatte sono risolte
-con l'ordine deterministico di `ParameterGrid`.
+Model comparison uses the mean and **sample standard deviation (ddof=1)** across
+the 5 outer folds. The standard deviation describes fold-to-fold variability;
+it is not a confidence interval. The family with the highest mean outer-fold
+accuracy is selected. Exact ties are resolved by lower standard deviation,
+followed by the fixed order Decision Tree → KNN → SVM. Within each grid search,
+exact ties follow the deterministic ordering of `ParameterGrid`.
 
-La scelta viene salvata in `selection.json` **prima** delle ricerche finali.
-Poi ogni famiglia effettua un'ultima Grid Search a **3 fold sul Training Set intero**,
-con `refit="accuracy"`; la Baseline viene semplicemente fittata sul training intero.
-Si salvano quattro modelli finali. Gli Inner scores finali servono al tuning e non
-sono usati per cambiare la famiglia già selezionata tramite Outer CV.
-Sono previsti 1.536 fit: 1.260 nei tuning esterni + 20 refit esterni, quindi 252 nel
-tuning finale + 4 fit finali. Non si addestra sul Test Set né sul dataset completo.
+The family selection is saved in `selection.json` **before** the final searches.
+Each learned family then undergoes a final grid search with **3 folds over the
+entire training set**, using `refit="accuracy"`. The baseline is fitted directly
+on the entire training set. Four final models are saved. Scores from these final
+inner searches support hyperparameter selection; they do not change the family
+already selected using outer CV.
+The full workflow comprises 1,536 fits: 1,260 candidate fits within the nested
+searches + 20 outer-fold refits, followed by 252 candidate fits in the final
+searches + 4 final fits. No model is trained on the test set or the full dataset.
 
-## File e artefatti
+## Files and artifacts
 
-| Percorso | Contenuto |
+| Path | Contents |
 |---|---|
-| `src/lol_model_training.py` | API riutilizzabile, Pipelines, CV, tuning, scoring, salvataggio e caricamento |
-| `scripts/train_models.py` | Entry point del training completo |
-| `scripts/execute_training_notebook.py` | Esecuzione e salvataggio del solo notebook B con l'interprete corrente |
-| `notebooks/02_model_training.ipynb` | Metodo, risultati CV, figure e limiti; non legge il Test Set |
-| `tests/test_model_training.py` | Test rapidi su record Diamond del solo Training Set |
-| `requirements-part-b.txt` | Dipendenze aggiuntive fissate, senza modificare la Parte A |
-| `reports/model_training_handoff.md` | Istruzioni per la futura Model Evaluation |
-| `reports/model_training/<run_id>/` | Risultati e metadati del run |
+| `src/lol_model_training.py` | Reusable API for pipelines, CV, tuning, scoring, saving, and loading |
+| `scripts/train_models.py` | Entry point for the complete training workflow |
+| `scripts/execute_training_notebook.py` | Executes and saves only the Part B notebook using the current interpreter |
+| `notebooks/02_model_training.ipynb` | Methodology, CV results, figures, and limitations; does not read the test set |
+| `tests/test_model_training.py` | Quick tests using only Diamond training records |
+| `requirements-part-b.txt` | Pinned additional dependencies, leaving Part A unchanged |
+| `reports/model_training_handoff.md` | Instructions for the subsequent model evaluation stage |
+| `reports/model_training/<run_id>/` | Run results and metadata |
 | `models/part_b/<run_id>/` | `dummy.joblib`, `decision_tree.joblib`, `knn.joblib`, `svm.joblib` |
-| `data/processed/part_b/<run_id>/cv_manifest.json` | ID dei record training assegnati a ogni fold; nessuna label o feature |
+| `data/processed/part_b/<run_id>/cv_manifest.json` | Training-record IDs assigned to each fold; no labels or feature values |
 
-Ogni run salva `nested_cv_scores`, `model_comparison` e `cv_results_*` in **CSV e JSON**.
-`inner_cv/` contiene tutte le 15 ricerche degli Outer Folds, sempre in entrambi i
-formati. I risultati completi includono parametri, punteggi per fold, medie, SD,
-rank per metrica e tempi. La colonna sklearn `split*_test_*` indica la validation
-interna alla CV: **non è il Test Set held-out della Parte A**.
+Each run saves `nested_cv_scores`, `model_comparison`, and `cv_results_*` in
+**CSV and JSON** formats. The `inner_cv/` directory contains all 15 searches
+performed within the outer folds, also in both formats. Complete search results
+include parameters, fold scores, means, standard deviations, metric-specific
+ranks, and timings. The scikit-learn column pattern `split*_test_*` refers to
+validation within CV: **it does not refer to the held-out test set from Part A**.
 
-`best_params.json` contiene gli Hyperparameters finali; `selection.json` conserva
-la scelta della famiglia; `run_metadata.json` registra stato, seed, griglie, schema,
-versioni, fingerprint del training, checksum del sorgente, dei modelli e del manifest,
-durata, warning e assenza di utilizzo del test. Tempi e timestamp non sono risultati
-deterministici: la riproducibilità riguarda split, parametri, predizioni e metriche
-nello stesso ambiente. I file binari non devono necessariamente essere identici
-byte per byte fra piattaforme.
+`best_params.json` contains the final hyperparameters, and `selection.json`
+records the selected family. `run_metadata.json` records run status, seed, search
+grids, feature schema, software versions, a training-data fingerprint, checksums
+for the source data, models, and fold manifest, elapsed time, warnings, and the
+absence of test-set use. Timings and timestamps are not deterministic results:
+reproducibility concerns the splits, parameters, predictions, and metrics in the
+same software environment. Binary files need not be identical byte for byte
+across platforms.
 
-## Condivisione successiva tramite GitHub
+## Subsequent sharing through GitHub
 
-Nessun comando Git è necessario per eseguire la Parte B. Questa implementazione
-non modifica branch, index, commit o remote e lascia invariata la `.gitignore`.
+No Git command is required to run Part B. The implementation leaves branches,
+the index, commits, remotes, and the existing `.gitignore` unchanged.
 
-La `.gitignore` esistente esclude **tutti i CSV**, i `.joblib` e `data/`. Perciò
-i CSV, i modelli finali e il CV manifest locale non compariranno automaticamente
-su GitHub. I JSON sotto `reports/model_training/`, il notebook eseguito, il codice,
-i test e la documentazione sono invece condivisibili con le regole attuali.
-I JSON contengono soltanto risultati aggregati e configurazioni, senza righe del
-dataset o predizioni individuali; sono la copia completa dei risultati delle
-ricerche, leggibile anche senza CSV. Gli ID dei fold restano nel manifest ignorato.
+The existing `.gitignore` excludes **all CSV files**, `.joblib` files, and
+`data/`. Consequently, CSV results, final models, and the local CV manifest will
+not be included automatically when sharing the project through GitHub. The JSON
+files under `reports/model_training/`, executed notebook, source code, tests,
+and documentation can be shared under the current rules.
+The JSON files contain only aggregate results and configurations, without
+dataset rows or individual predictions. They provide complete search results
+that remain readable without the CSV files. Fold IDs remain in the ignored
+manifest.
 
-Per il membro della Model Evaluation sono possibili due modalità:
+The group member responsible for model evaluation has two options:
 
-1. **Rigenerazione:** stesso CSV originale e Python 3.11, installazione delle
-   dipendenze fissate, test rapidi, poi `scripts/train_models.py`. La procedura
-   ricostruisce lo stesso split della Parte A e tutti gli artefatti della Parte B.
-   Se sono già presenti risultati condivisi per quel run, usare un nuovo `--run-id`.
-2. **Passaggio degli artefatti locali:** condividere privatamente, mantenendo i
-   percorsi relativi, le tre cartelle `models/part_b/<run_id>/`,
-   `reports/model_training/<run_id>/` e `data/processed/part_b/<run_id>/`.
-   I CSV possono essere inclusi in questo passaggio. Per la futura valutazione
-   occorre comunque il CSV originale, disponibile localmente al destinatario.
+1. **Regenerate the artifacts:** use the same original CSV and Python 3.11,
+   install the pinned dependencies, run the quick tests, and then execute
+   `scripts/train_models.py`. The workflow reconstructs the Part A split and
+   the Part B training artifacts. If shared results already exist for that run,
+   choose a new `--run-id`.
+2. **Receive the local artifacts:** privately share the three directories
+   `models/part_b/<run_id>/`, `reports/model_training/<run_id>/`, and
+   `data/processed/part_b/<run_id>/`, preserving their relative paths.
+   CSV results may be included in this transfer. The recipient must still have
+   a local copy of the original CSV for the subsequent evaluation.
 
-Non occorre forzare l'inclusione di modelli o dataset in Git. Prima di caricare
-modelli ricevuti, verificare che provengano dal membro del gruppo previsto:
-`joblib` serializza oggetti Python. `load_final_model()` controlla checksum, schema,
-versioni dei pacchetti e Python major/minor prima del caricamento.
+There is no need to force models or datasets into Git. Before loading received
+models, verify that they come from the intended group member, because `joblib`
+serializes Python objects. `load_final_model()` checks the checksum, feature
+schema, package versions, and Python major/minor version before loading.
 
-## Collegamento al corso e limiti
+## Relationship to the course and limitations
 
-L4–L5 spiegano Classification, Decision Tree, Gini ed Entropy; L6, slide 25–26,
-il Pre-pruning; L6, slide 44–51, Cross-Validation e Nested CV; L7, slide 9–24,
-KNN, scaling, SVM, C e kernel; L7, slide 27–34, soglie, ROC e confronto equo.
+Lectures L4–L5 cover classification, decision trees, Gini impurity, and entropy.
+L6, slides 25–26, covers pre-pruning; L6, slides 44–51, covers cross-validation
+and nested CV. L7, slides 9–24, covers KNN, scaling, SVM, C, and kernels; L7,
+slides 27–34, discusses thresholds, ROC curves, and fair model comparison.
 
-Le performance CV sono stime sul campione Diamond con questa rappresentazione
-di 12 feature. Scegliere la famiglia fra più candidati introduce ulteriore Selection
-Bias: l'Outer score del vincitore non sostituisce una valutazione finale indipendente.
-Cinque fold non dimostrano significatività statistica fra modelli vicini.
-La griglia è finita; un optimum al bordo non prova un optimum globale e non
-giustifica cambiamenti dopo aver visto il test. Scaling non elimina correlazioni
-o valori estremi. Restano i limiti della Parte A: ward count sospetti, assenza di
-player ID e patch/time metadata, omissione del ritmo assoluto. Nessun filtro,
-Feature Selection, resampling o nuova EDA è stato aggiunto per aggirare questi limiti.
+CV performance estimates apply to the Diamond sample and this representation
+of 12 features. Selecting a family from several candidates introduces additional
+selection bias: the selected family's outer score does not replace an independent
+final evaluation. Five folds do not establish statistically significant
+differences between closely performing models.
+The search grid is finite; a boundary optimum does not establish a global
+optimum or justify adjustments after inspecting the test set. Scaling does not
+remove feature correlations or extreme values. The limitations identified in
+Part A remain: suspicious ward counts, unavailable player IDs and patch/time
+metadata, and the omission of absolute game tempo. No filtering, feature
+selection, resampling, or additional EDA has been introduced to address these
+limitations.
 
-La futura Model Evaluation applicherà i modelli congelati al Test Set una volta.
-Potrà confrontarli descrittivamente, ma non usare quei risultati per riaprire il
-tuning o cambiare la famiglia già selezionata.
+The subsequent model evaluation stage will apply the frozen models to the test
+set once. It may compare their results descriptively, but those results must not
+be used to reopen tuning or change the selected family.

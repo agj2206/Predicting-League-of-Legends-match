@@ -22,7 +22,7 @@ The training workflow does not download data or install packages.
 Each group member must have a local copy of the same
 `high_diamond_ranked_10min.csv` file, retaining its original name. Place it in
 `data/raw/`, use the `Local_Datasets` directory alongside the repository, or pass
-`--data-path /percorso/high_diamond_ranked_10min.csv`.
+`--data-path /path/to/high_diamond_ranked_10min.csv`.
 The Part A interface also supports `LOL_DATA_PATH`.
 The expected checksum is
 `82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6`.
@@ -157,20 +157,49 @@ across platforms.
 
 ## Subsequent sharing through GitHub
 
-No Git command is required to run Part B. The implementation leaves branches,
-the index, commits, remotes, and the existing `.gitignore` unchanged.
+The Part B workflow does not require Git commands or modify `.gitignore`.
+The existing ignore rules exclude **all CSV files**, `.joblib` files, and
+`data/` by default. However, the four trained models for `diamond_5x3_seed42`
+have already been explicitly added with `git add -f` and uploaded to the
+`model-training` branch. They are therefore tracked and available on GitHub
+despite the matching ignore rule. Force-adding these files did not change
+`.gitignore`; the rule still applies to other untracked `.joblib` files.
 
-The existing `.gitignore` excludes **all CSV files**, `.joblib` files, and
-`data/`. Consequently, CSV results, final models, and the local CV manifest will
-not be included automatically when sharing the project through GitHub. The JSON
+The published model files are located in
+`models/part_b/diamond_5x3_seed42/`:
+
+- `dummy.joblib`
+- `decision_tree.joblib`
+- `knn.joblib`
+- `svm.joblib`
+
+**Member 3 can use these models without repeating training.** On GitHub, select
+the `model-training` branch and download that branch as a ZIP archive to obtain
+the models together with the corresponding code and results. Preserve the
+repository's directory structure when extracting it. If downloading files
+individually, use GitHub's raw-file download option for each model and retain
+the corresponding files in `reports/model_training/diamond_5x3_seed42/`,
+including `run_metadata.json`, `model_comparison.json`, `nested_cv_scores.json`,
+and `best_params.json`, which the loading functions require.
+
+Member 3 should use Python 3.11 and the pinned dependencies, then load the models
+with `load_final_model()` using `run_id="diamond_5x3_seed42"` and the model name
+`dummy`, `decision_tree`, `knn`, or `svm`. The original
+Diamond CSV is still required locally to reconstruct the fixed test partition
+with `prepare_data()`. For final evaluation, pass unscaled test features directly
+to the saved pipelines without refitting the models or their scalers. The model
+family selected through CV remains fixed; test results must not reopen selection.
+
+CSV results and local fold manifests remain excluded by default. The JSON
 files under `reports/model_training/`, executed notebook, source code, tests,
-and documentation can be shared under the current rules.
+and documentation can also be shared under the current rules.
 The JSON files contain only aggregate results and configurations, without
 dataset rows or individual predictions. They provide complete search results
 that remain readable without the CSV files. Fold IDs remain in the ignored
 manifest.
 
-The group member responsible for model evaluation has two options:
+If regeneration or additional local artifacts are needed, the following options
+remain available:
 
 1. **Regenerate the artifacts:** use the same original CSV and Python 3.11,
    install the pinned dependencies, run the quick tests, and then execute
@@ -183,9 +212,10 @@ The group member responsible for model evaluation has two options:
    CSV results may be included in this transfer. The recipient must still have
    a local copy of the original CSV for the subsequent evaluation.
 
-There is no need to force models or datasets into Git. Before loading received
-models, verify that they come from the intended group member, because `joblib`
-serializes Python objects. `load_final_model()` checks the checksum, feature
+The published models do not need to be force-added again, and the dataset does
+not need to be added to Git. Before loading downloaded or transferred models,
+verify that they come from the project repository or the intended group member,
+because `joblib` serializes Python objects. `load_final_model()` checks the checksum, feature
 schema, package versions, and Python major/minor version before loading.
 
 ## Relationship to the course and limitations

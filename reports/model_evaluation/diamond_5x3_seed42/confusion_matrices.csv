@@ -1,0 +1,5 @@
+model,TN,FP,FN,TP
+dummy,990,0,986,0
+decision_tree,747,243,295,691
+knn,721,269,272,714
+svm,744,246,276,710

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "evaluated_module_sha256": "603ddd0ef4ef35e9ce356e25927cb1ef65482f446037e060c1db60296f871725",
+  "current_module_sha256": "9cee938302961481e4f728d9b35325bbc2a83fa69e1f0e126ece4d0a955bd2e3",
+  "changed_functions_after_evaluation": [
+    "create_figures",
+    "render_findings"
+  ],
+  "prediction_scoring_and_evaluation_functions_unchanged": true,
+  "change_scope": "Human-readable figure labels and final report presentation only; no inference repeated"
+}

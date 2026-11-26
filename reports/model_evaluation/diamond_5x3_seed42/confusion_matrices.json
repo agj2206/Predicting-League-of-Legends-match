@@ -1,0 +1,90 @@
+{
+  "decision_tree": {
+    "FN": 295,
+    "FP": 243,
+    "TN": 747,
+    "TP": 691,
+    "columns": "Predicted class",
+    "labels": [
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        747,
+        243
+      ],
+      [
+        295,
+        691
+      ]
+    ],
+    "rows": "Actual class"
+  },
+  "dummy": {
+    "FN": 986,
+    "FP": 0,
+    "TN": 990,
+    "TP": 0,
+    "columns": "Predicted class",
+    "labels": [
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        990,
+        0
+      ],
+      [
+        986,
+        0
+      ]
+    ],
+    "rows": "Actual class"
+  },
+  "knn": {
+    "FN": 272,
+    "FP": 269,
+    "TN": 721,
+    "TP": 714,
+    "columns": "Predicted class",
+    "labels": [
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        721,
+        269
+      ],
+      [
+        272,
+        714
+      ]
+    ],
+    "rows": "Actual class"
+  },
+  "svm": {
+    "FN": 276,
+    "FP": 246,
+    "TN": 744,
+    "TP": 710,
+    "columns": "Predicted class",
+    "labels": [
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        744,
+        246
+      ],
+      [
+        276,
+        710
+      ]
+    ],
+    "rows": "Actual class"
+  }
+}

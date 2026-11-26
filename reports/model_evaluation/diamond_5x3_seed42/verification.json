@@ -1,0 +1,8 @@
+{
+  "confusion_counts_match_metrics": true,
+  "protected_hashes_unchanged": true,
+  "rows_per_model": 1976,
+  "selected_model": "svm",
+  "selection_reopened": false,
+  "status": "passed"
+}

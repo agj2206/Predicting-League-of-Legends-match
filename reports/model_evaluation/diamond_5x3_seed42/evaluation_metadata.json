@@ -1,0 +1,49 @@
+{
+  "finished_at_utc": "2026-11-19T14:35:53.140304+00:00",
+  "held_out_inference_started": true,
+  "held_out_predictions_computed": true,
+  "held_out_values_accessed": true,
+  "model_hashes": {
+    "decision_tree": {
+      "classes": [
+        0,
+        1
+      ],
+      "path": "models/part_b/diamond_5x3_seed42/decision_tree.joblib",
+      "sha256": "151b34dfa1ed91f5035872b473ba74f167dfa0a454b30d4f423fe08357b5ce80"
+    },
+    "dummy": {
+      "classes": [
+        0,
+        1
+      ],
+      "path": "models/part_b/diamond_5x3_seed42/dummy.joblib",
+      "sha256": "c017d92b62594555c5f1183a66b5adcf00da42c0c75ceeef0a36fa362d02cf16"
+    },
+    "knn": {
+      "classes": [
+        0,
+        1
+      ],
+      "path": "models/part_b/diamond_5x3_seed42/knn.joblib",
+      "sha256": "2d65bc6f007571192b4b2a08dbbe95d33e6bf92b7662905ebc208460904932bb"
+    },
+    "svm": {
+      "classes": [
+        0,
+        1
+      ],
+      "path": "models/part_b/diamond_5x3_seed42/svm.joblib",
+      "sha256": "c4ce499e9b4b4901d9e5e7fab879e07e3f03bb9b20159f48cdac6492b8853e40"
+    }
+  },
+  "model_reselection": false,
+  "positive_class": 1,
+  "run_id": "diamond_5x3_seed42",
+  "selected_model": "svm",
+  "source_sha256": "82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6",
+  "started_at_utc": "2026-11-19T14:35:52.703279+00:00",
+  "status": "complete",
+  "test_metrics": "Available in test_metrics.json",
+  "threshold_tuning": false
+}

@@ -1,0 +1,41 @@
+# Local datasets and derived data must stay out of Git.
+data/
+Local_Datasets*/
+*.csv
+*.csv.gz
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.zip
+
+# Python environments, caches, notebook checkpoints, and local configuration.
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.env
+.env.*
+.DS_Store
+
+# Reproduction logs and machine-specific environment snapshots.
+reports/local/
+
+# PDFs del curso — no son nuestros para redistribuir
+pdfs/
+
+# Agent trajectories: ignored everywhere EXCEPT docs/trajectories/, where each
+# member's agent-use history is committed as required by the course.
+*.jsonl
+!docs/trajectories/**/*.jsonl

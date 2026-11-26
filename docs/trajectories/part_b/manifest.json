@@ -1,0 +1,5844 @@
+{
+  "document_type": "New explanatory audit created 2026-11-26; not an original session record",
+  "schema_version": 1,
+  "preparation_date": "2026-11-26",
+  "timezone_for_documentation": "Asia/Hong_Kong",
+  "files": [
+    {
+      "original_filename": "rollout-2026-11-18T18-49-11-01a1ee46-5e2c-7db1-bfd2-132d20edc74b.jsonl",
+      "original_location": "<CODEX_SESSION_ROOT>/2026/11/18/rollout-2026-11-18T18-49-11-01a1ee46-5e2c-7db1-bfd2-132d20edc74b.jsonl",
+      "redacted_filename": "rollout-2026-11-18T18-49-11-01a1ee46-5e2c-7db1-bfd2-132d20edc74b.redacted.jsonl",
+      "purpose": "training_planning_precursor",
+      "original_record_count": 231,
+      "redacted_record_count": 110,
+      "original_sha256": "8616ed19188fb3f1e88e3f53a57888203088f0dabe3eabb1324202383cf332d3",
+      "redacted_sha256": "b0ddbf73f3f27614cd7bed5c497bb5f3078885be60729859313b2c7193c61f60",
+      "session_created_timestamp_utc": "2026-11-18T10:49:11.486Z",
+      "original_first_timestamp_utc": "2026-11-18T10:49:11.760Z",
+      "original_last_timestamp_utc": "2026-11-18T11:17:00.685Z",
+      "retained_first_timestamp_utc": "2026-11-18T10:49:11.760Z",
+      "retained_last_timestamp_utc": "2026-11-18T11:17:00.685Z",
+      "in_scope_original_line_range": [
+        1,
+        231
+      ],
+      "retained_original_lines": [
+        1,
+        2,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21,
+        23,
+        25,
+        26,
+        29,
+        31,
+        41,
+        42,
+        43,
+        44,
+        45,
+        47,
+        48,
+        49,
+        53,
+        55,
+        56,
+        57,
+        61,
+        63,
+        64,
+        68,
+        69,
+        71,
+        72,
+        76,
+        77,
+        78,
+        80,
+        81,
+        85,
+        87,
+        88,
+        92,
+        94,
+        95,
+        99,
+        100,
+        102,
+        106,
+        108,
+        109,
+        110,
+        114,
+        116,
+        117,
+        118,
+        122,
+        123,
+        125,
+        129,
+        131,
+        132,
+        138,
+        140,
+        141,
+        147,
+        148,
+        149,
+        151,
+        152,
+        156,
+        158,
+        159,
+        163,
+        165,
+        167,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        178,
+        179,
+        182,
+        184,
+        191,
+        192,
+        195,
+        196,
+        197,
+        198,
+        199,
+        201,
+        203,
+        205,
+        206,
+        207,
+        211,
+        213,
+        214,
+        218,
+        220,
+        221,
+        225,
+        226,
+        227,
+        228,
+        231
+      ],
+      "omitted_records": [
+        {
+          "original_line": 3,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 4,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 5,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 6,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 7,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 8,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 9,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 10,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 11,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 12,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 18,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 20,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 22,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 24,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 27,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 28,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 30,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 32,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 33,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 34,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 35,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 36,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 37,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 38,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 39,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 40,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 46,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 50,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 51,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 52,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 54,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 58,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 59,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 60,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 62,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 65,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 66,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 67,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 70,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 73,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 74,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 75,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 79,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 82,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 83,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 84,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 86,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 89,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 90,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 91,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 93,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 96,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 97,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 98,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 101,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 103,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 104,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 105,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 107,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 111,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 112,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 113,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 115,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 119,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 120,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 121,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 124,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 126,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 127,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 128,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 130,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 133,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 134,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 135,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 136,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 137,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 139,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 142,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 143,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 144,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 145,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 146,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 150,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 153,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 154,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 155,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 157,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 160,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 161,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 162,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 164,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 166,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 168,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 177,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 180,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 181,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 183,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 185,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 186,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 187,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 188,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 189,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 190,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 193,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 194,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 200,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 202,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 204,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 208,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 209,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 210,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 212,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 215,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 216,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 217,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 219,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 222,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 223,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 224,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 229,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 230,
+          "reason": "internal_runtime_context_or_usage"
+        }
+      ],
+      "omission_counts": {
+        "reasoning_or_internal_instruction_record": 41,
+        "system_or_developer_instruction": 14,
+        "automatic_environment_or_empty_companion_context": 3,
+        "internal_runtime_context_or_usage": 63
+      },
+      "redaction_counts": {
+        "internal_or_account_metadata_fields": 122,
+        "personal_absolute_paths": 213,
+        "local_usernames": 30,
+        "internal_tool_catalog": 1,
+        "machine_specific_temporary_paths": 3,
+        "opaque_binary_document_dump": 2,
+        "email_addresses": 3,
+        "student_identifiers": 1
+      },
+      "field_changes": [
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/account_scoped",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_user_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_account_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/0",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/base_instructions",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/history_mode",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/context_window",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 13,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 13,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 16,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 16,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 21,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 21,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/output/1/text/[nested_json]/value/output",
+          "category": "local_usernames",
+          "occurrences": 4
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 25,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 25,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 29,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 29,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 41,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 41,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 44,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 44,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 47,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 48,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 48,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "local_usernames",
+          "occurrences": 4
+        },
+        {
+          "original_line": 49,
+          "json_pointer": "/payload/output/2/text/[nested_json]/output",
+          "category": "local_usernames",
+          "occurrences": 4
+        },
+        {
+          "original_line": 49,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 49,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 53,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 53,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 53,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 55,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 55,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "local_usernames",
+          "occurrences": 6
+        },
+        {
+          "original_line": 56,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 56,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 56,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 56,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 11
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/output/1/text/[nested_json]/value/output",
+          "category": "local_usernames",
+          "occurrences": 6
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/output/2/text/[nested_json]/value/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 11
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 61,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 61,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 63,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 64,
+          "json_pointer": "/payload/output/1/text",
+          "category": "internal_tool_catalog",
+          "occurrences": 1
+        },
+        {
+          "original_line": 64,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 64,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 68,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 68,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 69,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 71,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 72,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 72,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 77,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 77,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 78,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 78,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 80,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 81,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 81,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 85,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 85,
+          "json_pointer": "/payload/input",
+          "category": "machine_specific_temporary_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 85,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 85,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/command/2",
+          "category": "machine_specific_temporary_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "machine_specific_temporary_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 87,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 14
+        },
+        {
+          "original_line": 88,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 14
+        },
+        {
+          "original_line": 88,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 88,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 92,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 92,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 92,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 94,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 94,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 94,
+          "json_pointer": "/payload/item/parsed_cmd/1/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 94,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "local_usernames",
+          "occurrences": 3
+        },
+        {
+          "original_line": 95,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "local_usernames",
+          "occurrences": 3
+        },
+        {
+          "original_line": 95,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 95,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 100,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 100,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 100,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 100,
+          "json_pointer": "/payload/item/parsed_cmd/1/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 102,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 102,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 106,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 106,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 106,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 108,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 108,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "opaque_binary_document_dump",
+          "occurrences": 1
+        },
+        {
+          "original_line": 109,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 109,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 109,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 110,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "opaque_binary_document_dump",
+          "occurrences": 1
+        },
+        {
+          "original_line": 110,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 110,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 114,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 114,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 114,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 116,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 117,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 117,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 117,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 118,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 118,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 122,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 122,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 122,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 125,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 125,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 125,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 129,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 129,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 129,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 132,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 132,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 132,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 140,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 140,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 140,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 140,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 141,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 141,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 141,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 148,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 148,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 149,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 149,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 149,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 151,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 151,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 151,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 151,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 152,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 152,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 152,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 158,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 158,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 158,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 158,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 159,
+          "json_pointer": "/payload/output/1/text/[nested_json]/file",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 159,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 159,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 163,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 163,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 165,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 165,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 165,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 167,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 167,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 167,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "email_addresses",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "email_addresses",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "email_addresses",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 171,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 171,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 171,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 171,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 171,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "student_identifiers",
+          "occurrences": 1
+        },
+        {
+          "original_line": 172,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 172,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 172,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 172,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 173,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 173,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 173,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 173,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 175,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 175,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 175,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 175,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 176,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 176,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 179,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 179,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 191,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 191,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 196,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 196,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 197,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 197,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 197,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 198,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 198,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 198,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 198,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 199,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/payload/output/1/text/[nested_json]/value/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 203,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 203,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 203,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/payload/item/parsed_cmd/0/path",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 206,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 206,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 206,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 207,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 207,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 211,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 211,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 211,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 213,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 213,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 213,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 214,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 214,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 218,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 218,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 218,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 220,
+          "json_pointer": "/payload/item/command/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 220,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 220,
+          "json_pointer": "/payload/item/parsed_cmd/0/cmd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 221,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 221,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 226,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 226,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 228,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 228,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        }
+      ],
+      "canonical_messages_retained": {
+        "user": 3,
+        "assistant": 9
+      },
+      "canonical_tool_calls_retained": 23,
+      "canonical_tool_outputs_retained": 23,
+      "validation": {
+        "valid_json_every_line": true,
+        "original_record_order_preserved": true,
+        "timestamps_monotonic": true,
+        "timestamps_unchanged": true,
+        "exact_structural_comparison_after_documented_redaction": true,
+        "original_bytes_unchanged": true
+      }
+    },
+    {
+      "original_filename": "rollout-2026-11-19T00-58-24-01a1ef98-6415-7593-bd81-d9797d1f8c3b.jsonl",
+      "original_location": "<CODEX_SESSION_ROOT>/2026/11/19/rollout-2026-11-19T00-58-24-01a1ef98-6415-7593-bd81-d9797d1f8c3b.jsonl",
+      "redacted_filename": "rollout-2026-11-19T00-58-24-01a1ef98-6415-7593-bd81-d9797d1f8c3b.redacted.jsonl",
+      "purpose": "primary_training_development",
+      "original_record_count": 358,
+      "redacted_record_count": 165,
+      "original_sha256": "aa175afc120bbe7948dc8c9d53c9b91e2eacdfe686a7eb4de4dd5ec763e11c8b",
+      "redacted_sha256": "76bba7395384657587c3c18d8856e29b81683c828436af55feb9154c60acdaed",
+      "session_created_timestamp_utc": "2026-11-18T16:58:24.185Z",
+      "original_first_timestamp_utc": "2026-11-18T16:58:24.430Z",
+      "original_last_timestamp_utc": "2026-11-19T11:00:21.258Z",
+      "retained_first_timestamp_utc": "2026-11-18T16:58:24.430Z",
+      "retained_last_timestamp_utc": "2026-11-19T11:00:21.258Z",
+      "in_scope_original_line_range": [
+        1,
+        358
+      ],
+      "retained_original_lines": [
+        1,
+        2,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21,
+        23,
+        26,
+        28,
+        31,
+        32,
+        33,
+        35,
+        37,
+        39,
+        43,
+        45,
+        48,
+        49,
+        51,
+        52,
+        55,
+        57,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        71,
+        75,
+        77,
+        78,
+        79,
+        80,
+        96,
+        97,
+        98,
+        99,
+        101,
+        105,
+        107,
+        108,
+        109,
+        113,
+        114,
+        116,
+        118,
+        121,
+        123,
+        127,
+        128,
+        129,
+        131,
+        135,
+        136,
+        138,
+        139,
+        143,
+        144,
+        145,
+        147,
+        148,
+        150,
+        153,
+        155,
+        156,
+        160,
+        162,
+        164,
+        167,
+        169,
+        170,
+        174,
+        176,
+        177,
+        179,
+        182,
+        183,
+        188,
+        190,
+        196,
+        198,
+        199,
+        200,
+        201,
+        205,
+        207,
+        208,
+        212,
+        214,
+        218,
+        220,
+        221,
+        225,
+        226,
+        227,
+        229,
+        230,
+        231,
+        239,
+        240,
+        242,
+        243,
+        247,
+        248,
+        251,
+        253,
+        255,
+        256,
+        257,
+        258,
+        259,
+        261,
+        262,
+        263,
+        267,
+        269,
+        270,
+        271,
+        275,
+        276,
+        277,
+        278,
+        280,
+        284,
+        285,
+        287,
+        291,
+        293,
+        294,
+        295,
+        301,
+        302,
+        303,
+        305,
+        309,
+        310,
+        312,
+        316,
+        317,
+        320,
+        322,
+        324,
+        325,
+        326,
+        327,
+        328,
+        330,
+        331,
+        332,
+        338,
+        339,
+        341,
+        345,
+        346,
+        348,
+        349,
+        350,
+        354,
+        355,
+        358
+      ],
+      "omitted_records": [
+        {
+          "original_line": 3,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 4,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 5,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 6,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 7,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 8,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 9,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 10,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 11,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 12,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 18,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 20,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 22,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 24,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 25,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 27,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 29,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 30,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 34,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 36,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 38,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 40,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 41,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 42,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 44,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 46,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 47,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 50,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 53,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 54,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 56,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 58,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 59,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 60,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 61,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 62,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 63,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 69,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 72,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 73,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 74,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 76,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 81,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 82,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 83,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 84,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 85,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 86,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 87,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 88,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 89,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 90,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 91,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 92,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 93,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 94,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 95,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 100,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 102,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 103,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 104,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 106,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 110,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 111,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 112,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 115,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 117,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 119,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 120,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 122,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 124,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 125,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 126,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 130,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 132,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 133,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 134,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 137,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 140,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 141,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 142,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 146,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 149,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 151,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 152,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 154,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 157,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 158,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 159,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 161,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 163,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 165,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 166,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 168,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 171,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 172,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 173,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 175,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 178,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 180,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 181,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 184,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 185,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 186,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 187,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 189,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 191,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 192,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 193,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 194,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 195,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 197,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 202,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 203,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 204,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 206,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 209,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 210,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 211,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 213,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 215,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 216,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 217,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 219,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 222,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 223,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 224,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 228,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 232,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 233,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 234,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 235,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 236,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 237,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 238,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 241,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 244,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 245,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 246,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 249,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 250,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 252,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 254,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 260,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 264,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 265,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 266,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 268,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 272,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 273,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 274,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 279,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 281,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 282,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 283,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 286,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 288,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 289,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 290,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 292,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 296,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 297,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 298,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 299,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 300,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 304,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 306,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 307,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 308,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 311,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 313,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 314,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 315,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 318,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 319,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 321,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 323,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 329,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 333,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 334,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 335,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 336,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 337,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 340,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 342,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 343,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 344,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 347,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 351,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 352,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 353,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 356,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 357,
+          "reason": "internal_runtime_context_or_usage"
+        }
+      ],
+      "omission_counts": {
+        "reasoning_or_internal_instruction_record": 93,
+        "system_or_developer_instruction": 7,
+        "automatic_environment_or_empty_companion_context": 3,
+        "internal_runtime_context_or_usage": 90
+      },
+      "redaction_counts": {
+        "internal_or_account_metadata_fields": 192,
+        "personal_absolute_paths": 208,
+        "local_usernames": 57
+      },
+      "field_changes": [
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/account_scoped",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_user_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_account_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/0",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/1",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/base_instructions",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/history_mode",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/context_window",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 13,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 13,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 16,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 16,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 17,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/payload/output/1/text/[nested_json]/value/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/payload/output/3/text/[nested_json]/value/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 11
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 19,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 21,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 21,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/output/1/text/[nested_json]/value/output",
+          "category": "local_usernames",
+          "occurrences": 14
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 26,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 28,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 28,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 28,
+          "json_pointer": "/payload/output/1/text",
+          "category": "local_usernames",
+          "occurrences": 3
+        },
+        {
+          "original_line": 28,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 28,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 32,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 32,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 33,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 33,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 33,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 35,
+          "json_pointer": "/payload/output/3/text/[nested_json]/value/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 35,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 35,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 37,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 37,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 37,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 39,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 39,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 43,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 43,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 43,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 49,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 49,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 51,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 51,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 52,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 52,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 52,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 52,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 55,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 55,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 64,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 64,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 67,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 67,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 68,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 68,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 70,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 70,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 70,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "local_usernames",
+          "occurrences": 20
+        },
+        {
+          "original_line": 71,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 71,
+          "json_pointer": "/payload/output/1/text/[nested_json]/output",
+          "category": "local_usernames",
+          "occurrences": 20
+        },
+        {
+          "original_line": 71,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 71,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 75,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 75,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 77,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 78,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 79,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 80,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 80,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 97,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 97,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 98,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 98,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 98,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 99,
+          "json_pointer": "/payload/item/stdout",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 101,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 101,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 105,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 105,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 105,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 107,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 108,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 108,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 108,
+          "json_pointer": "/payload/item/stdout",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 109,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 109,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 113,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 113,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 113,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 114,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 114,
+          "json_pointer": "/payload/item/stdout",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 116,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 116,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 118,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 121,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 121,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 123,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 128,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 128,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 129,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 129,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 131,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 135,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 135,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 136,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 136,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 136,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 138,
+          "json_pointer": "/payload/item/stdout",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 139,
+          "json_pointer": "/payload/output/2/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 139,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 139,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 144,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 144,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 145,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 145,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 147,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 148,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 148,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 150,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 153,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 153,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 155,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/payload/output/2/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 14
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 156,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 160,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 160,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 162,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 162,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 164,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 164,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 167,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 167,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 169,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/output/2/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 170,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 174,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 176,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 177,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 177,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 179,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 183,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 183,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 188,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 188,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 190,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 190,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 196,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 196,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 198,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 199,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 200,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 200,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/payload/output/3/text/[nested_json]/output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 201,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 205,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 207,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 208,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 208,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 212,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 212,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 214,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 214,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 218,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 218,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 220,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 221,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 221,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 226,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 226,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 227,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 227,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 229,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 229,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 14
+        },
+        {
+          "original_line": 230,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 231,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 231,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 239,
+          "json_pointer": "/payload/input",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 239,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 239,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 240,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 240,
+          "json_pointer": "/payload/item/stdout",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 242,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 243,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 243,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 247,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 9
+        },
+        {
+          "original_line": 248,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 9
+        },
+        {
+          "original_line": 248,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 248,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 251,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 9
+        },
+        {
+          "original_line": 255,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 255,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 258,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 258,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 259,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 259,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 261,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 261,
+          "json_pointer": "/payload/item/aggregated_output",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 262,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 263,
+          "json_pointer": "/payload/output/1/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 263,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 263,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 267,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 267,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 269,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 270,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 271,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 271,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 276,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 276,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 277,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 277,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 278,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 278,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 278,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 280,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 280,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 284,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 284,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 285,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 287,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 287,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 291,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 291,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 293,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 294,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 295,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 295,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 302,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 302,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 303,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 303,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 305,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 305,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 309,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 309,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 310,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 312,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 312,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 316,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 317,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 317,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 317,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 320,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 324,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 324,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 327,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 327,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 328,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 328,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 330,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 331,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 332,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 332,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 338,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 338,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 339,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 341,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 341,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 345,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 345,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 346,
+          "json_pointer": "/payload/item/changes/[key]",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 348,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 349,
+          "json_pointer": "/payload/item/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 350,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 350,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 354,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 355,
+          "json_pointer": "/payload/content/0/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 355,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 355,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 358,
+          "json_pointer": "/payload/last_agent_message",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        }
+      ],
+      "canonical_messages_retained": {
+        "user": 4,
+        "assistant": 17
+      },
+      "canonical_tool_calls_retained": 36,
+      "canonical_tool_outputs_retained": 36,
+      "validation": {
+        "valid_json_every_line": true,
+        "original_record_order_preserved": true,
+        "timestamps_monotonic": true,
+        "timestamps_unchanged": true,
+        "exact_structural_comparison_after_documented_redaction": true,
+        "original_bytes_unchanged": true
+      }
+    },
+    {
+      "original_filename": "rollout-2026-11-19T16-38-27-01a1f2f5-0a23-7932-b85b-83687bc1cd4c.jsonl",
+      "original_location": "<CODEX_SESSION_ROOT>/2026/11/19/rollout-2026-11-19T16-38-27-01a1f2f5-0a23-7932-b85b-83687bc1cd4c.jsonl",
+      "redacted_filename": "rollout-2026-11-19T16-38-27-01a1f2f5-0a23-7932-b85b-83687bc1cd4c.redacted.jsonl",
+      "purpose": "automated_approval_review_supplement",
+      "original_record_count": 64,
+      "redacted_record_count": 28,
+      "original_sha256": "099b8303b25a6349659a8adfd43dc5941c01856cefc13ce783c6162456507a60",
+      "redacted_sha256": "a91defb0e0c79ccd7c396ceefeb937275f04bbea8fb1faea203dfb842b2d76e4",
+      "session_created_timestamp_utc": "2026-11-19T08:38:27.646Z",
+      "original_first_timestamp_utc": "2026-11-19T08:54:51.652Z",
+      "original_last_timestamp_utc": "2026-11-19T08:58:56.665Z",
+      "retained_first_timestamp_utc": "2026-11-19T08:54:51.652Z",
+      "retained_last_timestamp_utc": "2026-11-19T08:58:56.665Z",
+      "in_scope_original_line_range": [
+        1,
+        64
+      ],
+      "retained_original_lines": [
+        1,
+        2,
+        10,
+        13,
+        14,
+        17,
+        20,
+        22,
+        23,
+        26,
+        27,
+        30,
+        32,
+        34,
+        37,
+        38,
+        41,
+        43,
+        45,
+        46,
+        49,
+        50,
+        53,
+        55,
+        57,
+        60,
+        61,
+        64
+      ],
+      "omitted_records": [
+        {
+          "original_line": 3,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 4,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 5,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 6,
+          "reason": "automatic_environment_or_empty_companion_context"
+        },
+        {
+          "original_line": 7,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 8,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 9,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 11,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 12,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 15,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 16,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 18,
+          "reason": "system_or_developer_instruction"
+        },
+        {
+          "original_line": 19,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 21,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 24,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 25,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 28,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 29,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 31,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 33,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 35,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 36,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 39,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 40,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 42,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 44,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 47,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 48,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 51,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 52,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 54,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 56,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 58,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 59,
+          "reason": "reasoning_or_internal_instruction_record"
+        },
+        {
+          "original_line": 62,
+          "reason": "internal_runtime_context_or_usage"
+        },
+        {
+          "original_line": 63,
+          "reason": "internal_runtime_context_or_usage"
+        }
+      ],
+      "omission_counts": {
+        "reasoning_or_internal_instruction_record": 11,
+        "system_or_developer_instruction": 3,
+        "automatic_environment_or_empty_companion_context": 1,
+        "internal_runtime_context_or_usage": 21
+      },
+      "redaction_counts": {
+        "internal_or_account_metadata_fields": 27,
+        "personal_absolute_paths": 46,
+        "internal_review_control_instructions": 16,
+        "local_usernames": 20,
+        "internal_permission_context": 21
+      },
+      "field_changes": [
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/account_scoped",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_user_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/creator_account_id",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/0",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/1",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/runtime_workspace_roots/2",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/base_instructions",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/history_mode",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/multi_agent_version",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 1,
+          "json_pointer": "/payload/context_window",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/1/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/2/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/3/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/17/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 3
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/17/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 4
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/21/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/21/text",
+          "category": "local_usernames",
+          "occurrences": 20
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/25/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/27/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/29/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/36/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/37/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 2
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/42/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/47/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/48/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/49/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/content/54/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 10,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 14,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 14,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/4/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/8/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/9/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/10/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/content/15/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 22,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/4/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 6
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/8/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/9/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/10/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 23,
+          "json_pointer": "/payload/item/content/15/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 27,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 27,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/1/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/2/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/3/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/12/text",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/16/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/17/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/18/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/content/23/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 34,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 38,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 38,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/content/8/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/content/9/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/content/10/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/content/15/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 45,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 46,
+          "json_pointer": "/payload/item/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 46,
+          "json_pointer": "/payload/item/content/8/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 46,
+          "json_pointer": "/payload/item/content/9/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 46,
+          "json_pointer": "/payload/item/content/10/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 46,
+          "json_pointer": "/payload/item/content/15/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 50,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 50,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/0/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/1/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/2/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/3/text",
+          "category": "internal_review_control_instructions",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/12/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/13/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/14/text",
+          "category": "internal_permission_context",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/content/19/text/[nested_json]/cwd",
+          "category": "personal_absolute_paths",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 57,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 61,
+          "json_pointer": "/payload/internal_chat_message_metadata_passthrough",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        },
+        {
+          "original_line": 61,
+          "json_pointer": "/metadata",
+          "category": "internal_or_account_metadata_fields",
+          "occurrences": 1
+        }
+      ],
+      "canonical_messages_retained": {
+        "user": 5,
+        "assistant": 5
+      },
+      "canonical_tool_calls_retained": 0,
+      "canonical_tool_outputs_retained": 0,
+      "validation": {
+        "valid_json_every_line": true,
+        "original_record_order_preserved": true,
+        "timestamps_monotonic": true,
+        "timestamps_unchanged": true,
+        "exact_structural_comparison_after_documented_redaction": true,
+        "original_bytes_unchanged": true
+      }
+    }
+  ],
+  "quality_assurance": {
+    "status": "passed",
+    "preparation_date": "2026-11-26",
+    "published_sessions": 5,
+    "published_jsonl_records": 504,
+    "substantive_canonical_messages_preserved": 77,
+    "canonical_tool_call_output_pairs_preserved": 110,
+    "unique_scientific_png_images_preserved": 4,
+    "recursive_privacy_scan_unresolved_findings": [],
+    "privacy_scan_limits": "Pattern scanning and inspection do not guarantee detection of every possible secret. Synthetic numerical code that resembles an email address was verified as code.",
+    "preexisting_session_logs_sha256_size_and_mtime_unchanged": 15,
+    "preexisting_project_files_sha256_unchanged": 111,
+    "git_head_branch_and_index_unchanged": true,
+    "new_files_only_in_requested_trajectory_directories": 9,
+    "no_raw_log_copied_into_repository": true,
+    "professor_raw_log_requirement": "Unverified: available L1 introduction requires trajectories but does not specify raw JSONL; later tutorial/Moodle rubric unavailable.",
+    "source_comparisons": [
+      {
+        "file": "docs/trajectories/part_b/rollout-2026-11-18T18-49-11-01a1ee46-5e2c-7db1-bfd2-132d20edc74b.redacted.jsonl",
+        "original_records": 231,
+        "published_records": 110,
+        "all_substantive_canonical_messages_preserved": true,
+        "all_in_scope_canonical_calls_and_outputs_preserved": true,
+        "paired_call_ids": true,
+        "scientific_png_bytes_preserved": true
+      },
+      {
+        "file": "docs/trajectories/part_b/rollout-2026-11-19T00-58-24-01a1ef98-6415-7593-bd81-d9797d1f8c3b.redacted.jsonl",
+        "original_records": 358,
+        "published_records": 165,
+        "all_substantive_canonical_messages_preserved": true,
+        "all_in_scope_canonical_calls_and_outputs_preserved": true,
+        "paired_call_ids": true,
+        "scientific_png_bytes_preserved": true
+      },
+      {
+        "file": "docs/trajectories/part_b/rollout-2026-11-19T16-38-27-01a1f2f5-0a23-7932-b85b-83687bc1cd4c.redacted.jsonl",
+        "original_records": 64,
+        "published_records": 28,
+        "all_substantive_canonical_messages_preserved": true,
+        "all_in_scope_canonical_calls_and_outputs_preserved": true,
+        "paired_call_ids": true,
+        "scientific_png_bytes_preserved": true
+      },
+      {
+        "file": "docs/trajectories/part_c/rollout-2026-11-19T22-00-42-01a1f41c-11c2-78b2-8f05-e07d430e656c.redacted.jsonl",
+        "original_records": 494,
+        "published_records": 157,
+        "all_substantive_canonical_messages_preserved": true,
+        "all_in_scope_canonical_calls_and_outputs_preserved": true,
+        "paired_call_ids": true,
+        "scientific_png_bytes_preserved": true
+      },
+      {
+        "file": "docs/trajectories/part_c/rollout-2026-11-19T22-00-42-01a1f41c-11de-79f2-b40f-af968eb2da67.redacted.jsonl",
+        "original_records": 129,
+        "published_records": 44,
+        "all_substantive_canonical_messages_preserved": true,
+        "all_in_scope_canonical_calls_and_outputs_preserved": true,
+        "paired_call_ids": true,
+        "scientific_png_bytes_preserved": true
+      }
+    ]
+  }
+}

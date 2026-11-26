@@ -1,0 +1,6 @@
+{
+  "held_out_test_used": false,
+  "selected_model": "svm",
+  "selection_rule": "maximum outer mean accuracy; exact ties: minimum sample SD, then decision_tree/knn/svm",
+  "selection_source": "Outer CV scores only; frozen before final searches"
+}

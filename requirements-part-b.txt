@@ -1,0 +1,5 @@
+# Part A remains unchanged. Python 3.11; installed versions used for Part B.
+-r requirements.txt
+joblib==1.6.0
+scipy==1.17.1
+threadpoolctl==3.8.0

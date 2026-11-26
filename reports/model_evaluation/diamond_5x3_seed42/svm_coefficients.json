@@ -1,0 +1,98 @@
+[
+  {
+    "absolute_standardized_coefficient": 1.1238446813563225,
+    "feature": "blueGoldDiff",
+    "original_unit_coefficient": 0.0004569613805784577,
+    "standardized_coefficient": 1.1238446813563225,
+    "training_mean": 22.45729469821587,
+    "training_scale": 2459.3865677087883
+  },
+  {
+    "absolute_standardized_coefficient": 0.4151380356816867,
+    "feature": "blueExperienceDiff",
+    "original_unit_coefficient": 0.00021535647396467942,
+    "standardized_coefficient": 0.4151380356816867,
+    "training_mean": -26.135644691889155,
+    "training_scale": 1927.6784581352936
+  },
+  {
+    "absolute_standardized_coefficient": 0.13143514651309993,
+    "feature": "killsDiff",
+    "original_unit_coefficient": -0.03126798549256681,
+    "standardized_coefficient": -0.13143514651309993,
+    "training_mean": 0.05542199164874098,
+    "training_scale": 4.20350542072323
+  },
+  {
+    "absolute_standardized_coefficient": 0.067275118300873,
+    "feature": "assistsDiff",
+    "original_unit_coefficient": -0.011661813070178382,
+    "standardized_coefficient": -0.067275118300873,
+    "training_mean": 0.003796026825256232,
+    "training_scale": 5.7688386785163885
+  },
+  {
+    "absolute_standardized_coefficient": 0.15964033801919944,
+    "feature": "minionsDiff",
+    "original_unit_coefficient": -0.005160392514430991,
+    "standardized_coefficient": -0.15964033801919944,
+    "training_mean": -0.685435910413767,
+    "training_scale": 30.935696765850018
+  },
+  {
+    "absolute_standardized_coefficient": 0.01763819762134129,
+    "feature": "jungleMinionsDiff",
+    "original_unit_coefficient": -0.0012370795338340738,
+    "standardized_coefficient": -0.01763819762134129,
+    "training_mean": -0.78577755282804,
+    "training_scale": 14.257933414091266
+  },
+  {
+    "absolute_standardized_coefficient": 0.03296519451486824,
+    "feature": "wardsPlacedDiff",
+    "original_unit_coefficient": -0.001279042396363794,
+    "standardized_coefficient": -0.03296519451486824,
+    "training_mean": -0.18765025939516639,
+    "training_scale": 25.773339967920855
+  },
+  {
+    "absolute_standardized_coefficient": 0.02940293980887326,
+    "feature": "wardsDestroyedDiff",
+    "original_unit_coefficient": 0.010286837547275903,
+    "standardized_coefficient": 0.02940293980887326,
+    "training_mean": 0.1131215993926357,
+    "training_scale": 2.8583070038526626
+  },
+  {
+    "absolute_standardized_coefficient": 0.03880728871733047,
+    "feature": "firstBloodDiff",
+    "original_unit_coefficient": 0.03880913081101703,
+    "standardized_coefficient": 0.03880728871733047,
+    "training_mean": 0.00974313551815766,
+    "training_scale": 0.9999525345286518
+  },
+  {
+    "absolute_standardized_coefficient": 0.24317268322101146,
+    "feature": "dragonsDiff",
+    "original_unit_coefficient": 0.2766180859529537,
+    "standardized_coefficient": 0.24317268322101146,
+    "training_mean": -0.04972795141085664,
+    "training_scale": 0.8790917715422609
+  },
+  {
+    "absolute_standardized_coefficient": 0.062118936639485464,
+    "feature": "heraldsDiff",
+    "original_unit_coefficient": 0.10535718524324245,
+    "standardized_coefficient": 0.062118936639485464,
+    "training_mean": 0.024294571681639884,
+    "training_scale": 0.5896032292061423
+  },
+  {
+    "absolute_standardized_coefficient": 0.0934460837602735,
+    "feature": "towersDestroyedDiff",
+    "original_unit_coefficient": -0.2849291200961898,
+    "standardized_coefficient": -0.0934460837602735,
+    "training_mean": 0.011008477793243073,
+    "training_scale": 0.3279625604035377
+  }
+]

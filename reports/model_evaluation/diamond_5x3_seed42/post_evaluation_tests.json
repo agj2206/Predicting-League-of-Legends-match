@@ -1,0 +1,10 @@
+{
+  "phase": "After final evaluation and presentation updates",
+  "successful": true,
+  "tests_run": 31,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "command": ".venv/bin/python -B -m unittest discover -s tests -p test_model_evaluation.py -v",
+  "scope": "Synthetic inputs and frozen parameters only; real held-out model inference was not repeated"
+}

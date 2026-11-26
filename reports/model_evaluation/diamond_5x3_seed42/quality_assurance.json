@@ -1,0 +1,33 @@
+{
+  "confusion_matrices_match_cached_predictions": true,
+  "english_materials_review": "English prose reviewed; Italian keyword scan passed",
+  "evaluation_artifact_hashes": {
+    "confusion_matrices.csv": "9285867efc32c446cf8299b426a951841088cad34d970afb7380da79afc624c1",
+    "confusion_matrices.json": "65484d99befd411cd53fafed985ccac560ac3fe1d77849e52a001480ad8a28e6",
+    "cv_test_comparison.csv": "86fb12860643be23a19e43ba0ea7a535c1256bcfefb9396bdabb2fb963e1a15e",
+    "cv_test_comparison.json": "a9aa9f4e354b92588f3b7c09668c82960d86f6f3516d05ea54a553b933580dda",
+    "evaluation_metadata.json": "71903a443534c0ff612dd4657229ef14f1b46c1b8d6b869d6196da7ad458ceaf",
+    "evaluation_started.json": "805d39af80a5ac50c42483e0931d4f1b4821fffac046e66623be4663f12b3fc9",
+    "roc_curves.json": "97ffb10cfa02bd5441dcf486de4897bb5ddb0c5fc47195309fe7e51f2543132d",
+    "test_metrics.csv": "1ef075f7dfce6ad628df0da06b2baf5df30a47ec3cdc5734d3d8bc87a3b05384",
+    "test_metrics.json": "9d53cc15f1f07e1bd46aba79aaa76a93d663a3db1e7ab6bce8601e017ea67fda"
+  },
+  "independent_auc_check": "Mann-Whitney statistic from average ranks, with half credit for ties",
+  "json_csv_notebook_readme_report_metrics_match": true,
+  "model_inference_executed_during_qa": false,
+  "notebook_embedded_figures_match_files": [
+    "confusion_matrices.png",
+    "cv_test_accuracy.png",
+    "roc_curves.png",
+    "svm_standardized_coefficients.png"
+  ],
+  "notebook_error_outputs": 0,
+  "notebook_executed_code_cells": 9,
+  "plotted_values_and_legends_match_saved_numbers": true,
+  "prediction_cache_sha256": "52aeca35cee8bc0fdc1cb85e3b2db7928c3fcc4686284bd6a4eab73f8206b50c",
+  "protected_files_unchanged": 80,
+  "recreated_figure_pixels_match_saved_files": true,
+  "roc_coordinate_integrals_match_auc": true,
+  "rows_per_model": 1976,
+  "status": "passed"
+}

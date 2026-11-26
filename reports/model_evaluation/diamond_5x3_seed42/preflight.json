@@ -1,0 +1,126 @@
+{
+  "artifacts": {
+    "decision_tree": {
+      "checksum_verified": true,
+      "hyperparameters_verified": true,
+      "schema_verified": true
+    },
+    "dummy": {
+      "checksum_verified": true,
+      "hyperparameters_verified": true,
+      "schema_verified": true
+    },
+    "knn": {
+      "checksum_verified": true,
+      "hyperparameters_verified": true,
+      "schema_verified": true
+    },
+    "svm": {
+      "checksum_verified": true,
+      "hyperparameters_verified": true,
+      "schema_verified": true
+    }
+  },
+  "automatic_tests": {
+    "errors": 0,
+    "failures": 0,
+    "scope": "Synthetic inputs and saved parameters only; no Diamond rows parsed",
+    "skipped": 0,
+    "successful": true,
+    "tests_run": 31
+  },
+  "feature_names": [
+    "blueGoldDiff",
+    "blueExperienceDiff",
+    "killsDiff",
+    "assistsDiff",
+    "minionsDiff",
+    "jungleMinionsDiff",
+    "wardsPlacedDiff",
+    "wardsDestroyedDiff",
+    "firstBloodDiff",
+    "dragonsDiff",
+    "heraldsDiff",
+    "towersDestroyedDiff"
+  ],
+  "held_out_predictions_computed": false,
+  "held_out_rows": 1976,
+  "held_out_values_accessed": false,
+  "implementation_hashes": {
+    "scripts/evaluate_models.py": "b43737653d8b2c5a6940d5cc407f6bc08d86aea28c343e150582c8ade0071dc5",
+    "scripts/execute_evaluation_notebook.py": "11505bdf3e13160efe7a8471b7c7182723958b75b0b3efbf34e8e24b2134a081",
+    "src/lol_model_evaluation.py": "603ddd0ef4ef35e9ce356e25927cb1ef65482f446037e060c1db60296f871725",
+    "tests/test_model_evaluation.py": "179fab0a5f5879e246e8b5702183955a48a36d1aac9e3cc674b891305e67e5db"
+  },
+  "protected_hashes": {
+    ".gitignore": "09be8b83da8fb0689cc3d2907764a631392ad6e5901c6e78fd2006179f0c070a",
+    "README.md": "71dff267616b4bd20e56f494d67140417a708b1c3a05a2f9940359b194371674",
+    "data/processed/part_b/diamond_5x3_seed42/cv_manifest.json": "c4b12b9ab6796259899d357ab88a7fa9c9f62305dd10009b42aef85bf444dbaf",
+    "data/processed/split_manifest.json": "4283788d98c4556c1093fb6ab7cd8b04742df5a63d6f55d0d5b8c68aa4a5f095",
+    "models/part_b/diamond_5x3_seed42/decision_tree.joblib": "151b34dfa1ed91f5035872b473ba74f167dfa0a454b30d4f423fe08357b5ce80",
+    "models/part_b/diamond_5x3_seed42/dummy.joblib": "c017d92b62594555c5f1183a66b5adcf00da42c0c75ceeef0a36fa362d02cf16",
+    "models/part_b/diamond_5x3_seed42/knn.joblib": "2d65bc6f007571192b4b2a08dbbe95d33e6bf92b7662905ebc208460904932bb",
+    "models/part_b/diamond_5x3_seed42/svm.joblib": "c4ce499e9b4b4901d9e5e7fab879e07e3f03bb9b20159f48cdac6492b8853e40",
+    "notebooks/01_data_preprocessing.ipynb": "29ff574241a8e763cf5bcb1571eaa593783d53e5ff2fa5fcc3515cd07098b285",
+    "reports/figures/01_target_class_distribution.png": "e18b7e2a8a2be5711d79e0c26b48aae545c397cab185fd5d5195be8dd6cd8bf8",
+    "reports/figures/02_training_major_statistics_boxplots.png": "a137493f993404e76df3f5dc3d909121b094abcbeab40d08d1d564184ae88aaa",
+    "reports/figures/03_training_feature_distributions.png": "1b381a92a868de71ee2ffb9995cc397a2803cc1a8ee860e6694ed525a632b8a9",
+    "reports/figures/04_training_objective_distributions.png": "62090cb4e36f173f3157366799aff589cc85f81abb47690951cb234ab73c490a",
+    "reports/figures/05_training_win_proportions_gold_kills.png": "8eb2188cd55df1efff02322533d018d92f78f55f8663c3cb3143e4e99aca6321",
+    "reports/figures/06_training_win_proportions_objectives.png": "98a5529f4b054fc7a147aef770fc905b0c4a8870d573ed717bd16b6f47b3d973",
+    "reports/figures/07_training_target_associations.png": "2ddd614939dcd07a73330e94a5641a43a383677a4706ed10cd91e59bdf89e592",
+    "reports/figures/08_training_predictor_correlation.png": "820b98cfc834264b67ea9fe539ddf2f69dfde03b8f8042f8c1a96e155e62048f",
+    "reports/part_a_findings.md": "5d23c2637c64d47c82762ccd33fa54b86bdd7103809f38ef72ad106b44fe4671",
+    "requirements.txt": "c22597c5eea7728d255c96e5981529463ea40e668b441d1aa06f5afffb19289e",
+    "scripts/execute_notebook.py": "d86135a5d33c88d2f6818c85939fa721895b85dba36f2432ed6f34f34c9e698c",
+    "src/__init__.py": "a766e0f26cfa47953a75de1837b1fdb807c18a5227fb38a9c7b9e33f9d3f83a2",
+    "src/lol_model_training.py": "ea33a7da3e5cfc5c2ab940f7a3919a8e45f412a5b7e738b197c922300042a03a",
+    "src/lol_preprocessing.py": "15fa84852e74b7805354abccd1085655383fb45f1aaff437e6d250253403de10",
+    "tests/test_preprocessing.py": "e2550b8584d4b28788936e29a4e3bfab95c250211898e2014c77a1ce2fe9688f"
+  },
+  "run_id": "diamond_5x3_seed42",
+  "selected_model": "svm",
+  "source_access": "Byte-level checksum only; CSV not parsed",
+  "source_sha256": "82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6",
+  "split_and_cv_membership_verified": true,
+  "status": "passed",
+  "svm_numerical_verification": {
+    "coefficient_atol": 1e-08,
+    "coefficient_method": "math.fsum of signed dual coefficient times support-vector coordinate",
+    "coefficients_finite": true,
+    "decision_function_warnings": [],
+    "diagnosis": "Warnings were checked separately for SVC.coef_, NumPy matmul, and NumPy dot. The local warning is isolated to the matmul path used by SVC.coef_; a low-level library or hardware cause has not been established. Finite weights and agreement with libsvm decision_function are independently verified. Interpretation uses math.fsum, without altering the saved model or suppressing global warnings.",
+    "held_out_values_accessed": false,
+    "multiplication_paths": {
+      "numpy_dot": {
+        "maximum_absolute_error": 1.2682785377471362e-11,
+        "warnings": []
+      },
+      "numpy_matmul": {
+        "maximum_absolute_error": 1.2682785377471362e-11,
+        "warnings": [
+          "divide by zero encountered in matmul",
+          "overflow encountered in matmul",
+          "invalid value encountered in matmul"
+        ]
+      }
+    },
+    "original_unit_intercept": -0.0015765474250216856,
+    "original_unit_score_maximum_absolute_error": 2.5370372469524227e-11,
+    "public_coef_maximum_absolute_error": 1.2682785377471362e-11,
+    "public_coef_warnings": [
+      "divide by zero encountered in matmul",
+      "overflow encountered in matmul",
+      "invalid value encountered in matmul"
+    ],
+    "rtol": 1e-08,
+    "scope": "Learned parameters and artificial inputs only",
+    "score_atol": 1e-07,
+    "standardized_intercept": -0.006761806402886228,
+    "standardized_score_maximum_absolute_error": 2.5369928380314377e-11,
+    "status": "passed",
+    "synthetic_observations": 539,
+    "verified_local_call_path": "SVC._get_coef -> safe_sparse_dot -> a @ b (NumPy matmul)"
+  },
+  "training_rows": 7903
+}

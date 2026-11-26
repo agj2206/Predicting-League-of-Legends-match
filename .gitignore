@@ -35,5 +35,7 @@ reports/local/
 # PDFs del curso — no son nuestros para redistribuir
 pdfs/
 
-# Trayectorias de agente: locales, van en el ZIP de entrega
+# Agent trajectories: ignored everywhere EXCEPT docs/trajectories/, where each
+# member's agent-use history is committed as required by the course.
 *.jsonl
+!docs/trajectories/**/*.jsonl

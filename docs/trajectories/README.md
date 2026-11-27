@@ -17,4 +17,4 @@ These records document AI-assisted work on the CDS3004 project. The session attr
 
 Each JSONL line is a record. The guides explain the scope, attribution, and redactions. The manifests list the source-to-copy line mappings and SHA-256 hashes. Each retained record keeps its source timestamp and relative order. Original exports stay with their custodians. The exact files used for this review were also preserved in a private local archive.
 
-The [agent validation notes](../agent_validation.md) describe errors and corrections during the project. See the [publication review](../publication_review.md) for the distinction between these copies and the versions still reachable in Git history.
+The [agent validation notes](../agent_validation.md) describe errors and corrections during the project. See the [project publication notes](../../README.md#publication-status) for how these copies relate to earlier versions in Git history.

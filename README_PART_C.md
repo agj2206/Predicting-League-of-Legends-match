@@ -61,7 +61,8 @@ preflight test additionally requires the original source CSV and the local
 Part A split and Part B CV manifests. It also compares files to historical
 Part A hashes. The final integration snapshot already differed from that
 baseline for `README.md`, `.gitignore`, `requirements.txt` and the Part A
-notebook. The [checksum investigation](docs/publication_review.md#historical-preflight) explains the provenance difference. For a fresh integration checkout, run the 30 evaluation tests that
+notebook. The recorded hashes describe the original run workspace. For a fresh
+integration checkout, run the 30 evaluation tests that
 exercise synthetic data, artifacts and the saved-result workflow without that
 historical preflight, for example:
 

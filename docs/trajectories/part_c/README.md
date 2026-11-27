@@ -48,6 +48,8 @@ The originals remain unchanged in the local Codex session directory outside this
 
 No numeric result, hyperparameter, substantive Part C user decision, or relevant recorded implementation/testing interaction was removed for presentation quality. Original truncation notices remain: text absent from the original log is not reconstructed. Serialization may change JSON whitespace/escaping, and commands with placeholders are documentary evidence rather than runnable commands.
 
+The 27 November review masked remaining home paths, private project links, and account or application references in tool and review output. All four scientific PNGs remain byte-identical. Record counts, timestamps, and tool-call linkage were verified against the earlier redacted copies. The manifest records the prior copy hash and follow-up edits under `release_review`. The earlier copies and manifests were preserved in a separate private local archive.
+
 ## Audit and validation
 
 `manifest.json` contains original/copy SHA-256 values, full-original and excerpt record counts, original line mappings, per-record omission reasons, field-change categories/JSON pointers, and timestamps. Original ordinals and timestamp order are preserved without sorting. Its newly created audit entries are explanatory data, not inserted conversation records.

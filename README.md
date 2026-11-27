@@ -1,216 +1,111 @@
-# Predicting-League-of-Legends-match
-CDS3004 Data Mining Group Project - Predicting League of Legends match outcomes using early-game statistics.
+# Predicting League of Legends Match Outcomes Using Early-Game Statistics
 
-## Part A: preprocessing and exploratory analysis
+CDS3004 Data Mining Group Project
 
-Research question: **Can we predict the winning team using only statistics available after the first 10 minutes?**
-The response is `blueWins` (`1` = Blue wins; `0` = Red wins). Part A uses only
-the original [League of Legends Diamond Ranked Games (10 min) dataset](https://www.kaggle.com/datasets/bobbyscience/league-of-legends-diamond-ranked-games-10-min)
-by bobbyscience. No models are trained in this stage.
+**Research question.** Can we predict the winning team in a League of Legends match using only statistics available at the 10-minute mark?
 
-### Files
+League of Legends is a competitive game in which two teams, Blue and Red, try to destroy the opposing team's Nexus. Gold, experience, combat and map objectives describe the early state of the match. This project tests how much predictive information that state contains about the eventual winner.
 
-- `notebooks/01_data_preprocessing.ipynb`: complete workflow, explanations, executed tables, and embedded charts.
-- `src/lol_preprocessing.py`: source discovery, validation, fixed feature policy, and reproducible unscaled split.
-- `reports/figures/`: eight labeled EDA figures. All use training data except the full-source target-count chart.
-- `reports/part_a_findings.md`: aggregate findings generated from the executed notebook.
-- `scripts/execute_notebook.py`: run the notebook using the invoking Python, without installing a global Jupyter kernel.
-- `tests/test_preprocessing.py`: source, validation, feature-exclusion, and split-reproducibility checks.
-- `requirements.txt`: exact direct dependency versions tested with Python 3.11.
-- `data/processed/split_manifest.json`: generated **locally and ignored**; source checksum, feature order, and split membership without labels or predictor values.
+## Dataset
 
-### Environment and reproduction
+The source is `high_diamond_ranked_10min.csv` from [League of Legends Diamond Ranked Games (10 min), published by bobbyscience on Kaggle](https://www.kaggle.com/datasets/bobbyscience/league-of-legends-diamond-ranked-games-10-min). The source describes ranked solo-queue games from high Diamond to low Master. The exact CSV used here has **9,879 matches and 40 columns**. The binary outcome `blueWins` is 1 for a Blue win and 0 for a Red win. Blue won 4,930 matches and Red won 4,949.
 
-Use Python 3.11. A project-local `.venv` was necessary on the inspected machine:
-the default Python's scientific libraries had incompatible CPU architectures,
-and the existing Anaconda interpreter could not run on the machine's CPU.
-The system and Anaconda installations were left unchanged.
+| Partition | Matches | Red wins | Blue wins |
+| --- | ---: | ---: | ---: |
+| Training | 7,903 | 3,959 | 3,944 |
+| Held-out test | 1,976 | 990 | 986 |
 
-From the repository root, for a fresh checkout:
+## Project workflow
+
+### Part A — Data preprocessing, feature engineering and EDA
+
+Part A verifies the source checksum, schema, missing values, duplicate identifiers and Blue–Red arithmetic. All records were retained. Each match is represented by **12 Blue-minus-Red predictors** covering gold, experience, combat, farming, vision and objectives. The feature policy was fixed before examining feature–outcome associations. `gameId` orders rows before the stratified 80/20 split (seed 42) and serves as a row index. Predictor-level exploratory analysis uses the training partition. Gold difference had the highest training Pearson correlation with the outcome (0.511), followed by experience difference (0.489) and kills difference (0.479).
+
+[Part A notebook](notebooks/01_data_preprocessing.ipynb) · [Preprocessing and feature policy](README_PART_A.md) · [Findings](reports/part_a_findings.md) · [Target associations](reports/figures/07_training_target_associations.png) · [Predictor correlations](reports/figures/08_training_predictor_correlation.png)
+
+### Part B — Model training and nested cross-validation
+
+Part B compares a majority-class Dummy baseline, Decision Tree, k-nearest neighbors (KNN) and support vector machine (SVM). On the training set, stratified nested cross-validation uses **5 outer folds and 3 inner folds** with seed 42. The inner folds tune hyperparameters, and the outer folds estimate validation performance. KNN and SVM learn standardization inside their pipelines on each fit. The family with the highest mean outer-fold accuracy is selected before the final three-fold searches and training-set refits. The chosen pipeline is a **linear SVM with `C=10`**.
+
+[Part B notebook](notebooks/02_model_training.ipynb) · [Training protocol](README_PART_B.md) · [Findings](reports/part_b_findings.md) · [Saved CV results](reports/model_training/diamond_5x3_seed42/)
+
+### Part C — Model evaluation and interpretation
+
+Part C scored all four frozen pipelines on the original held-out split. The preselected SVM remained the primary model. Evaluation reports accuracy, Blue-class precision, recall and F1, ROC-AUC and confusion matrices. The SVM's ranking scores come from its decision function. Gold difference, experience difference and dragon difference have the largest absolute standardized SVM coefficients. These coefficients describe the fitted decision score conditional on the other features.
+
+[Part C notebook](notebooks/03_model_evaluation.ipynb) · [Evaluation protocol](README_PART_C.md) · [Findings and figures](reports/part_c_findings.md) · [Saved evaluation results](reports/model_evaluation/diamond_5x3_seed42/)
+
+## Main results
+
+| Model | Mean outer CV accuracy | Held-out accuracy | Held-out ROC-AUC |
+| --- | ---: | ---: | ---: |
+| Dummy (majority class) | 50.09% | 50.10% | 0.5000 |
+| Decision Tree | 71.58% | 72.77% | 0.7994 |
+| KNN | 71.62% | 72.62% | 0.8081 |
+| **Linear SVM (`C=10`)** | **72.95%** | **73.58%** | **0.8149** |
+
+The SVM made **1,454 correct** and **522 incorrect** predictions. Its held-out accuracy exceeded the majority baseline by **23.48 percentage points**. Ten-minute statistics supported above-baseline prediction for the evaluated sample.
+
+[CV and test accuracy](reports/figures/part_c/diamond_5x3_seed42/cv_test_accuracy.png) · [Confusion matrices](reports/figures/part_c/diamond_5x3_seed42/confusion_matrices.png) · [ROC curves](reports/figures/part_c/diamond_5x3_seed42/roc_curves.png) · [SVM coefficients](reports/figures/part_c/diamond_5x3_seed42/svm_standardized_coefficients.png)
+
+## Installation
+
+Use **Python 3.11**. From the repository root on macOS or Linux, run the following commands. On Windows, use `py -3.11` to create the environment and `.venv\Scripts\python.exe` for subsequent commands.
 
 ```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python scripts/execute_notebook.py
-.venv/bin/python -m unittest discover -s tests -v
+python3.11 -m venv .venv
+.venv/bin/python -m pip install -r requirements-part-b.txt
+.venv/bin/python -m pip check
 ```
 
-If `.venv` already exists, use it without recreating it. In VS Code, select
-`.venv/bin/python` as the notebook kernel, then run all cells. The notebook also
-works when its working directory is `notebooks/`. The execution script supplies
-its own temporary kernel, so it does not depend on a globally registered kernel.
+[`requirements.txt`](requirements.txt) pins Part A's direct dependencies. [`requirements-part-b.txt`](requirements-part-b.txt) includes those pins and adds the versions needed to load the saved models. The combined installation covers Part C as well. Matplotlib supplies Pillow for the figure auditor, and the notebook stack supplies `jupyter_client` and IPython. The recorded training environment used Python 3.11.5. [Environment record](reports/model_training/diamond_5x3_seed42/environment_versions.txt)
 
-Keep the raw file named `high_diamond_ranked_10min.csv` locally. Discovery checks
-`data/raw/` and sibling directories named `Local_Datasets` after trimming surrounding
-whitespace. In the inspected workspace the file is outside the repository at:
+## Reproduction and verification
 
-```text
-../Local_Datasets /high_diamond_ranked_10min.csv
-```
+- **Inspect the saved experiment.** The executed notebooks, aggregate JSON and figures are available in the repository. The Part B and Part C notebooks can be regenerated from their saved inputs without the dataset, model fitting or held-out inference. Their scripts update the notebook files in place. Use a disposable copy to preserve the saved versions.
 
-There is a space immediately after `Local_Datasets`. Alternatively set
-`LOL_DATA_PATH` to the file's absolute path, or pass that path to `prepare_data()`.
-An ambiguous search fails rather than choosing an arbitrary dataset. No download
-or raw-data copying is performed. `.gitignore` excludes datasets, processed data,
-environments, caches, and common large intermediate formats. The local source SHA-256 is:
+  ```bash
+  .venv/bin/python -B scripts/execute_training_notebook.py
+  .venv/bin/python -B scripts/execute_evaluation_notebook.py
+  ```
 
-```text
-82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6
-```
+- **Reproduce Part A.** Download the named CSV from the [Kaggle data card](https://www.kaggle.com/datasets/bobbyscience/league-of-legends-diamond-ranked-games-10-min). Extract it locally to `data/raw/high_diamond_ranked_10min.csv`, or point `LOL_DATA_PATH` to an absolute file path with that filename. The loader also accepts a unique match in a sibling `Local_Datasets` directory. The expected SHA-256 is `82b2e23279097c2dac616e966eb2911711c428d41b6382b4cdb15da4892f9ca6`. Keep the original CSV, split membership and per-match predictions local. Run these commands from the repository root. The notebook script refreshes the Part A notebook, EDA figures and findings in place, so use a disposable copy when checking the published displays.
 
-`prepare_data()` rejects different file bytes to prevent silent source/version
-changes. This fingerprints the supplied local file; it is not independent
-verification against a second Kaggle download. Investigate a mismatch rather
-than replacing the checksum or regenerating the test set to obtain favorable results.
+  ```bash
+  .venv/bin/python -B -m unittest discover -s tests -p test_preprocessing.py -v
+  .venv/bin/python -B scripts/execute_notebook.py
+  ```
 
-### Fixed feature representation
+- **Training and evaluation provenance.** The [Part B guide](README_PART_B.md) documents the original training recipe and the use of a separate run ID for an independent training reproduction. The completed Part C evaluation is documented in the [Part C guide](README_PART_C.md). Its display-only mode reads saved aggregate results. The historical preflight and prediction-cache audit have additional local prerequisites and file-hash checks, detailed there. The test suite includes Part B tests that fit models, so use targeted tests when verifying frozen artifacts.
 
-The module keeps `blueGoldDiff` and `blueExperienceDiff`, and creates ten
-Blue-minus-Red differences:
+## Repository structure
 
-```text
-killsDiff, assistsDiff, minionsDiff, jungleMinionsDiff,
-wardsPlacedDiff, wardsDestroyedDiff, firstBloodDiff,
-dragonsDiff, heraldsDiff, towersDestroyedDiff
-```
+| Path | Contents |
+| --- | --- |
+| [`notebooks/`](notebooks/) | Three executed notebooks for Parts A, B and C |
+| [`src/`](src/) | Preprocessing and validation, nested CV and training, evaluation and interpretation |
+| [`scripts/`](scripts/) | Notebook execution, training, evaluation, result rendering and verification entry points |
+| [`tests/`](tests/) | Tests for all three stages |
+| [`models/part_b/diamond_5x3_seed42/`](models/part_b/diamond_5x3_seed42/) | Four fitted pipelines from the recorded training run |
+| [`reports/`](reports/) | Findings, figures, nested CV search results and saved evaluation results |
+| [`docs/`](docs/) | Decisions, agent validation and the trajectory index |
+| [`data/`](data/) | Placeholders for local raw and processed data |
 
-Positive differences favor Blue. The 12-column policy is domain-based and fixed
-before target-association EDA. `feature_decisions()` documents the action and
-reason for every original column. The audit verifies mirrored kills/deaths,
-opposite team differences, gold/experience difference identities, per-minute
-rescalings, and elite-monster sums before relying on their redundancy.
-Average level is excluded as a coarse experience-related summary, not as an
-exact duplicate. Relative differences deliberately omit absolute game tempo and
-can merge different tied objective states. These are documented simplicity
-tradeoffs, not evidence that the excluded columns have no predictive information.
-No target-based feature selection is performed.
+## Limitations
 
-### Reuse in Part B
+- The sample covers a narrow ranked population. The CSV contains no player identifiers, match dates, patch or region fields. Repeated-player independence and performance on other ranks, regions or future patches remain unverified.
+- Suspiciously large ward counts were retained. The dataset provides no match timelines to resolve them. Relative predictors discard some information about absolute game tempo and tied objective states.
+- The results describe observational prediction. Correlations and coefficients among correlated predictors do not establish causal effects.
+- The experiment uses one holdout and finite hyperparameter grids. The selected model's CV mean can be optimistic, and fold variability does not establish statistical superiority. SVM decision scores are uncalibrated.
 
-From the repository root:
+## Group contributions and agent records
 
-```python
-from src.lol_preprocessing import FEATURE_NAMES, TARGET, prepare_data, save_split_manifest
+- **Part A.** The work plan assigns preprocessing, validation, splitting and EDA to Cesar. The repository records this implementation in commit `273860b` under the Git author name `leyroda`. The Claude Code session archive is attributed to Cesar. [Part A sessions](docs/trajectories/README.md#part-a--cesar)
+- **Part B.** The work plan assigns model training and tuning to Andrea. Commit `98d791d` records the implementation under the Git author name Andrea. The Codex planning operator identifies as Member 2 in the session. [Part B sessions](docs/trajectories/part_b/README.md)
+- **Part C.** The work plan assigns evaluation to Christian. The implementation and completion commits (`9203ee8` and `1b40e46`) list Andrea as Git author. The completion commit also credits Natalia as a co-author. The Codex records document the local operator's evaluation interactions and automated review. The records do not independently establish the operator's identity or Christian's implementation contributions. [Part C sessions](docs/trajectories/part_c/README.md)
 
-prepared = prepare_data()  # optionally pass the absolute CSV path
-save_split_manifest(prepared)  # verifies an existing local manifest, or creates it
-X_train, X_test = prepared.X_train, prepared.X_test
-y_train, y_test = prepared.y_train, prepared.y_test
-```
+Individual presentation responsibilities are unverified in the available project records. The [work plan](SPRINTS.md) records planned assignments, and the [trajectory index](docs/trajectories/README.md) explains the scope and attribution of the archived sessions. The [decision log](docs/decisions.md) and [agent validation notes](docs/agent_validation.md) record choices and corrections during development.
 
-`X_train` has **7,903 rows × 12 columns** and `X_test` has **1,976 rows × 12 columns**.
-The label shapes are `(7903,)` and `(1976,)`. Training contains 3,959 Red wins and
-3,944 Blue wins; test contains 990 Red wins and 986 Blue wins. All four objects
-use `gameId` as the row index for traceability; neither `gameId` nor `blueWins`
-appears in the predictor columns. Algorithms must consume the predictor columns,
-without resetting the match ID into an additional feature.
+## Publication status
 
-Splitting uses `test_size=0.20`, `stratify=y`, and `random_state=42`, after sorting
-by unique `gameId`. The low-level split is stable even if input rows are reordered;
-the public `prepare_data()` interface additionally requires the exact source bytes.
-The manifest refuses to overwrite different source/feature/membership information.
-The source schema, expected fingerprint, feature policy, sorting, and seed together
-define the reproducible contract; do not alter them during the three-model comparison.
-
-Decision Tree, KNN, and SVM should reuse these same four objects. Part B may fit
-models and choose hyperparameters using training cross-validation. Put scaling
-inside the KNN/SVM scikit-learn pipelines so each fold learns its own scaling
-parameters. A Decision Tree does not require scaling. Any learned imputation or
-supervised feature selection must also be inside the training-fold pipeline.
-After all decisions are fixed, use the held-out test set for final evaluation.
-
-### Data quality and limitations
-
-The supplied file has **9,879 matches and 40 columns**, no missing values, no
-identical duplicate records, no repeated match IDs, and no detected invalid
-numeric, binary, count, or team-arithmetic values. No records or values are changed.
-Validation stops on future anomalies rather than silently imputing, deduplicating,
-or correcting them. Outlier flags are descriptive and are never cleaning rules.
-Very large ward counts remain suspicious and unresolved without match timelines
-or extraction details; they are retained and explicitly discussed in the notebook.
-
-Full-source inspection is limited to basic descriptive summaries and structural
-checks. Predictor distributions, outlier analysis, target relationships, and
-correlation analysis use **training data only**. Correlations and binned win
-proportions are descriptive associations, not causal effects, feature-selection
-decisions, or model performance. No preprocessing is fitted in Part A.
-
-The snapshot timestamp is based on the original dataset's description and schema,
-not independently reconstructed timelines. Player identities and patch/time
-metadata are unavailable here, so this random split cannot establish independence
-across repeated players or generalization to later patches. The source CSV and
-generated data remain local; no commits, pushes, or branch changes are needed to
-reproduce Part A.
-
----
-
-## Project status and work division
-
-One research question, three sequential stages.
-
-| Stage | Scope | Owner | Status |
-|---|---|---|---|
-| **1** | Data preprocessing, validation, split, EDA | Cesar | **done** |
-| **2** | Model training — Decision Tree, KNN, SVM, nested CV, hyperparameter tuning | Andrea | **done** |
-| **3** | Model evaluation — confusion matrix, accuracy, precision, recall, F1, ROC-AUC, ROC curves, interpretation | Christian | next |
-
-We deliberately keep to the single question above. Clustering and association-rule mining were
-considered as secondary questions and dropped (decision D07) so that one question is answered
-properly rather than three superficially.
-
-### Stage 2 result
-
-Nested cross-validation, outer 5-fold × inner 3-fold, against a majority-class baseline:
-
-| model | accuracy | ROC-AUC |
-|---|---|---|
-| dummy baseline | 0.5009 ± 0.0002 | 0.5000 |
-| decision tree | 0.7158 ± 0.0206 | 0.7940 ± 0.0132 |
-| KNN | 0.7162 ± 0.0145 | 0.7986 ± 0.0130 |
-| **SVM (linear, C=10)** | **0.7295 ± 0.0167** | **0.8089 ± 0.0136** |
-
-The SVM was selected on outer mean accuracy under a rule frozen before the final searches.
-**The held-out test set has not been used** — it is spent once, in Stage 3.
-
-### How each stage consumes the previous one
-
-Call the functions; never read a stored file, so nobody works from a stale artefact.
-
-```python
-from src.lol_preprocessing import prepare_data
-from src.lol_model_training import load_final_model, load_run_results
-
-data = prepare_data()                 # X_train (7903, 12), X_test (1976, 12)
-
-run_id   = "diamond_5x3_seed42"
-results  = load_run_results(run_id=run_id)
-model    = load_final_model(results["metadata"]["selected_model"], run_id=run_id)
-```
-
-Pass `data.X_test` **unscaled** straight to `model.predict` — the scaler lives inside the
-Pipeline. Do not call `fit` or `fit_transform`, and do not recompute the split: Stage 1 split
-before computing any statistic (decision D04), and the held-out set is only honest untouched.
-
-See `SPRINTS.md` for the stage breakdowns, `docs/decisions.md` for every choice and its
-evidence, and `docs/agent_validation.md` for mistakes caught during the work.
-
-### Tests
-
-```
-python -m unittest discover -s tests
-```
-
-## Team
-
-Workload is evidenced by commits and by each member's agent-use trajectory, as described in the
-course's Special Tutorial. Trajectories are kept locally and submitted in the final ZIP; they are
-git-ignored and never committed.
-
-## Scope and limitations
-
-9,879 ranked solo-queue matches, described by the dataset's author as high Diamond to low
-Master. **Patch, date and region are unknown** — the CSV carries no such columns, so we cannot
-say the matches share a patch window or a server, and we do not claim it. That limits what the
-result generalises to: a model fit here is not shown to hold on a later patch or another region.
-Observational data: a gold lead predicting a win is not evidence that chasing gold early causes
-wins. Conclusions are not generalised beyond this scope.
+The working tree contains privacy-reviewed trajectory copies. Earlier versions remain reachable in published Git history. Kaggle identifies the exact source dataset as CC0. The fitted KNN and SVM retain recoverable training observations, so their inclusion in a public release requires a distribution decision. See the [publication review](docs/publication_review.md) and the [trajectory index](docs/trajectories/README.md).

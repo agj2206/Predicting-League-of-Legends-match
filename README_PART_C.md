@@ -37,38 +37,55 @@ a gain of **23.48 percentage points**. It correctly predicts 1,454 winners and
 makes 522 errors. This supports predictive value within the evaluated sample,
 not causal effects or proven transfer to other ranks, regions, or future patches.
 
-## Reproduce displays without repeating inference
+## Reproduce displays from saved results
 
-Use the existing Python 3.11 environment and the dependencies already pinned
-in `requirements-part-b.txt`. No additional package is required. From the
-repository root:
+Use Python 3.11 and install `requirements-part-b.txt` as described in the
+[project README](README.md#installation). From the repository root in a
+disposable copy:
 
 ```bash
-# Verify synthetic cases and frozen-artifact compatibility; no real match rows are parsed.
-.venv/bin/python -B -m unittest discover -s tests -p test_model_evaluation.py -v
-
-# Regenerate figures and findings using saved aggregate evidence only.
+# Refresh figures and findings from saved aggregate results.
 .venv/bin/python -B scripts/evaluate_models.py --render-saved-results
 
-# Execute the notebook using saved aggregate evidence and figures only.
+# Refresh the executed notebook from those aggregates and figures.
 .venv/bin/python -B scripts/execute_evaluation_notebook.py
-
-# Check saved metrics, tables, figures, and protected-file checksums without model inference.
-.venv/bin/python -B scripts/verify_evaluation_results.py
 ```
 
-The original authorized command was
-`.venv/bin/python -B scripts/evaluate_models.py --evaluate-held-out-test`.
-**It has already run and must not be repeated.** An exclusive
-`evaluation_started.json` reservation and saved evaluation state prevent
-simultaneous or repeated final evaluation. Preliminary-only mode was used
-before evaluation; it cannot overwrite the completed run. A failed or
-incomplete state must be inspected, never bypassed using a new run ID.
+The final evaluation is already complete. The saved status and the exclusive
+`evaluation_started.json` reservation guard the original held-out run.
 
-Part A/B test suites are not invoked by Part C: the Part B suite includes
-training integration tests. The 31 Part C tests use artificial observations
-and frozen parameters, including an entirely simulated final workflow in a
-temporary directory; they do not re-evaluate the real holdout.
+### Tests and historical audit
+
+The evaluation tests use artificial observations and frozen pipelines. The
+preflight test additionally requires the original source CSV and the local
+Part A split and Part B CV manifests. It also compares files to historical
+Part A hashes. The final integration snapshot already differed from that
+baseline for `README.md`, `.gitignore`, `requirements.txt` and the Part A
+notebook. The [checksum investigation](docs/publication_review.md#historical-preflight) explains the provenance difference. For a fresh integration checkout, run the 30 evaluation tests that
+exercise synthetic data, artifacts and the saved-result workflow without that
+historical preflight, for example:
+
+```bash
+PYTHONPATH=tests .venv/bin/python -B -m unittest -v \
+  test_model_evaluation.MetricTests \
+  test_model_evaluation.ContractTests \
+  test_model_evaluation.WorkflowTests \
+  test_model_evaluation.FrozenArtifactTests.test_saved_models_accept_synthetic_schema_without_fitting_or_mutation \
+  test_model_evaluation.FrozenArtifactTests.test_saved_parameters_and_feature_order \
+  test_model_evaluation.FrozenArtifactTests.test_real_svm_algebra_on_synthetic_points \
+  test_model_evaluation.FrozenArtifactTests.test_synthetic_parameters_have_hand_calculated_primal_weights \
+  test_model_evaluation.FrozenArtifactTests.test_interpretation_rejects_wrong_kernel_schema_or_scale
+```
+
+The historical [prediction-cache verifier](scripts/verify_evaluation_results.py)
+checks metrics against the original private `test_predictions.csv`, the local
+split manifest, the dataset checksum, and all files in the [protected hash
+manifest](reports/model_evaluation/diamond_5x3_seed42/protected_file_hashes.json).
+Several of those files are local-only. The verifier writes
+`quality_assurance.json`; run it only in a copy of the original evaluation
+workspace with its original protected files and private inputs. The [saved
+audit](reports/model_evaluation/diamond_5x3_seed42/quality_assurance.json)
+documents the checks performed at the time of evaluation.
 
 ## Frozen methodology
 
@@ -153,10 +170,9 @@ to rendering labels and explanatory text use only saved evidence and do not
 alter the evaluated prediction or metric functions. Original evaluation
 provenance remains in `preflight.json`.
 
-Existing ignore rules keep CSV data and the prediction cache local. The
-notebook and shareable JSON contain aggregate evidence rather than match
-rows. Part A/B files, original data, models, `.gitignore`, and the main
-README are unchanged. No results have been published.
+The raw CSV and prediction cache belong in ignored local paths. The notebook
+and evaluation tables report aggregate evidence. The [project README](README.md)
+provides the integrated results and publication status.
 
 ## Limitations
 

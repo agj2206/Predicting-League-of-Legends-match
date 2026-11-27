@@ -12,7 +12,7 @@
       "original_record_count": 494,
       "redacted_record_count": 157,
       "original_sha256": "11676d9301e4d102a7b17eccaec1fe1f41adc32ebe3419e2b87d4f38de5fe1eb",
-      "redacted_sha256": "3e5353cd6c08f43645a783b9ea8ddd3055841c358921029907d4d2903d04eb78",
+      "redacted_sha256": "9762c553ea50a1121cf3baaa1579af64ca8adfe60a8c0ec6de8d40ed1d1eb0f1",
       "session_created_timestamp_utc": "2026-11-19T14:00:42.713Z",
       "original_first_timestamp_utc": "2026-11-19T14:00:42.990Z",
       "original_last_timestamp_utc": "2026-11-19T15:22:25.809Z",
@@ -3533,6 +3533,74 @@
         "timestamps_unchanged": true,
         "exact_structural_comparison_after_documented_redaction": true,
         "original_bytes_unchanged": true
+      },
+      "release_review": {
+        "prior_copy_sha256": "3e5353cd6c08f43645a783b9ea8ddd3055841c358921029907d4d2903d04eb78",
+        "prior_copy_record_count": 157,
+        "changed_records": [
+          {
+            "original_line": 1,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 19,
+            "categories": {
+              "project-remote-url": 2,
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 22,
+            "categories": {
+              "home-path": 1
+            }
+          },
+          {
+            "original_line": 24,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 27,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 34,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 41,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 122,
+            "categories": {
+              "third-party-record-or-app-id": 4
+            }
+          },
+          {
+            "original_line": 213,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          }
+        ],
+        "replacement_counts": {
+          "project-remote-url": 4,
+          "private-app-identifier": 5,
+          "home-path": 1,
+          "third-party-record-or-app-id": 4
+        },
+        "timestamp_inversions_at_original_lines": []
       }
     },
     {
@@ -3543,7 +3611,7 @@
       "original_record_count": 129,
       "redacted_record_count": 44,
       "original_sha256": "7a1f1470823f7262ce1675aaebabc82d92c6c6505c93373518c4f385ac04f9aa",
-      "redacted_sha256": "bd7f01832dd6f363b053adaa8127260cab5cc3cd130341000467ab8c4ed776a3",
+      "redacted_sha256": "ff86b68c29592a9b74ce2da65e2ef5e40b7abd8ac9da44540c0d653928e446ed",
       "session_created_timestamp_utc": "2026-11-19T14:00:42.752Z",
       "original_first_timestamp_utc": "2026-11-19T14:01:08.115Z",
       "original_last_timestamp_utc": "2026-11-19T15:21:36.257Z",
@@ -4829,10 +4897,193 @@
         "timestamps_unchanged": true,
         "exact_structural_comparison_after_documented_redaction": true,
         "original_bytes_unchanged": true
+      },
+      "release_review": {
+        "prior_copy_sha256": "bd7f01832dd6f363b053adaa8127260cab5cc3cd130341000467ab8c4ed776a3",
+        "prior_copy_record_count": 44,
+        "changed_records": [
+          {
+            "original_line": 1,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 10,
+            "categories": {
+              "project-remote-url": 2,
+              "home-path": 1,
+              "private-app-identifier": 3
+            }
+          },
+          {
+            "original_line": 13,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 14,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 17,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 25,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 26,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 29,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 36,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 37,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 40,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 44,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 45,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 48,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 49,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 52,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 58,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 59,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 62,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 70,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 71,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 74,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 81,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 82,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 85,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 92,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 93,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 96,
+            "categories": {
+              "account-identifier": 1
+            }
+          }
+        ],
+        "replacement_counts": {
+          "project-remote-url": 3,
+          "home-path": 1,
+          "private-app-identifier": 5,
+          "account-identifier": 24
+        },
+        "timestamp_inversions_at_original_lines": []
       }
     }
   ],
-  "quality_assurance": {
+  "initial_quality_assurance": {
     "status": "passed",
     "preparation_date": "2026-11-26",
     "published_sessions": 5,
@@ -4895,5 +5146,7 @@
         "scientific_png_bytes_preserved": true
       }
     ]
-  }
+  },
+  "release_review_date": "2026-11-27",
+  "release_review_schema_version": 1
 }

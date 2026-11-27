@@ -1,5 +1,7 @@
 # CLAUDE.md — LoL Early-Game Project (CDS3004 Data Mining, Lingnan University)
 
+> This is the original development guide. The [project README](README.md) records the completed experiment, current reproduction steps and verified attribution.
+
 Read at the start of every session. Follow it strictly.
 
 ## 1. Project context

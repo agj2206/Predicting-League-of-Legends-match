@@ -1,5 +1,7 @@
 # Workstreams
 
+> This is the development work plan. Stage labels and member assignments below reflect the plan at the time. See the [project README](README.md) for the completed experiment and verified attribution.
+
 **Research question:** can we predict the winning team using only statistics available after the
 first 10 minutes? One question, three sequential stages.
 

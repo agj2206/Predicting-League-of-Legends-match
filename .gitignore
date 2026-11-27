@@ -3,6 +3,10 @@ data/
 Local_Datasets*/
 *.csv
 *.csv.gz
+*.csv.bz2
+*.csv.xz
+*.tsv
+*.tsv.gz
 *.parquet
 *.feather
 *.pkl
@@ -18,6 +22,7 @@ Local_Datasets*/
 .venv/
 venv/
 env/
+.venv-*/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
@@ -25,17 +30,42 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .cache/
+.direnv/
+.vscode/
+.idea/
+.DS_Store
+
+# Local credentials and authentication material.
 .env
 .env.*
-.DS_Store
+.envrc
+.netrc
+.pypirc
+.ssh/
+.aws/
+.kaggle/
+kaggle.json
+credentials.json
+secrets.json
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Reproduction logs and machine-specific environment snapshots.
 reports/local/
 
-# PDFs del curso — no son nuestros para redistribuir
+# Course PDFs are kept locally.
 pdfs/
 
-# Agent trajectories: ignored everywhere EXCEPT docs/trajectories/, where each
-# member's agent-use history is committed as required by the course.
+# Keep new session exports local. Git still tracks the existing evidence.
+.claude/
+.codex/
 *.jsonl
-!docs/trajectories/**/*.jsonl
+*.jsonl.gz
+# Reviewed Part A copies for the release tree.
+!/docs/trajectories/cesar/2026-11-14_initial_exploration.redacted.jsonl
+!/docs/trajectories/cesar/2026-11-18_to_11-26_lol_project.redacted.jsonl
+
+# Private evidence retained for the project team.
+/.private/

@@ -12,7 +12,7 @@
       "original_record_count": 231,
       "redacted_record_count": 110,
       "original_sha256": "8616ed19188fb3f1e88e3f53a57888203088f0dabe3eabb1324202383cf332d3",
-      "redacted_sha256": "b0ddbf73f3f27614cd7bed5c497bb5f3078885be60729859313b2c7193c61f60",
+      "redacted_sha256": "d388dd8d3c3821430434598f696f4fd1acbfad8b8cc00216c98e157c07bd97cb",
       "session_created_timestamp_utc": "2026-11-18T10:49:11.486Z",
       "original_first_timestamp_utc": "2026-11-18T10:49:11.760Z",
       "original_last_timestamp_utc": "2026-11-18T11:17:00.685Z",
@@ -2259,6 +2259,48 @@
         "timestamps_unchanged": true,
         "exact_structural_comparison_after_documented_redaction": true,
         "original_bytes_unchanged": true
+      },
+      "release_review": {
+        "prior_copy_sha256": "b0ddbf73f3f27614cd7bed5c497bb5f3078885be60729859313b2c7193c61f60",
+        "prior_copy_record_count": 110,
+        "changed_records": [
+          {
+            "original_line": 1,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 205,
+            "categories": {
+              "source-match-row": 3
+            }
+          },
+          {
+            "original_line": 207,
+            "categories": {
+              "source-match-row": 3
+            }
+          },
+          {
+            "original_line": 213,
+            "categories": {
+              "source-match-id": 2
+            }
+          },
+          {
+            "original_line": 214,
+            "categories": {
+              "source-match-id": 2
+            }
+          }
+        ],
+        "replacement_counts": {
+          "project-remote-url": 1,
+          "source-match-row": 6,
+          "source-match-id": 4
+        },
+        "timestamp_inversions_at_original_lines": []
       }
     },
     {
@@ -2269,7 +2311,7 @@
       "original_record_count": 358,
       "redacted_record_count": 165,
       "original_sha256": "aa175afc120bbe7948dc8c9d53c9b91e2eacdfe686a7eb4de4dd5ec763e11c8b",
-      "redacted_sha256": "76bba7395384657587c3c18d8856e29b81683c828436af55feb9154c60acdaed",
+      "redacted_sha256": "6330f982aa719ebca42f573be0df52454c67ad993694c60df7c782bcbd64791d",
       "session_created_timestamp_utc": "2026-11-18T16:58:24.185Z",
       "original_first_timestamp_utc": "2026-11-18T16:58:24.430Z",
       "original_last_timestamp_utc": "2026-11-19T11:00:21.258Z",
@@ -5022,6 +5064,109 @@
         "timestamps_unchanged": true,
         "exact_structural_comparison_after_documented_redaction": true,
         "original_bytes_unchanged": true
+      },
+      "release_review": {
+        "prior_copy_sha256": "76bba7395384657587c3c18d8856e29b81683c828436af55feb9154c60acdaed",
+        "prior_copy_record_count": 165,
+        "changed_records": [
+          {
+            "original_line": 1,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 17,
+            "categories": {
+              "home-path": 1
+            }
+          },
+          {
+            "original_line": 28,
+            "categories": {
+              "source-match-id": 5
+            }
+          },
+          {
+            "original_line": 167,
+            "categories": {
+              "private-app-identifier": 2
+            }
+          },
+          {
+            "original_line": 169,
+            "categories": {
+              "private-app-identifier": 4
+            }
+          },
+          {
+            "original_line": 242,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 243,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 261,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 263,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 269,
+            "categories": {
+              "private-app-identifier": 2
+            }
+          },
+          {
+            "original_line": 277,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 278,
+            "categories": {
+              "private-app-identifier": 2
+            }
+          },
+          {
+            "original_line": 293,
+            "categories": {
+              "private-app-identifier": 2
+            }
+          },
+          {
+            "original_line": 331,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 348,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          }
+        ],
+        "replacement_counts": {
+          "project-remote-url": 1,
+          "home-path": 1,
+          "source-match-id": 5,
+          "private-app-identifier": 19
+        },
+        "timestamp_inversions_at_original_lines": []
       }
     },
     {
@@ -5032,7 +5177,7 @@
       "original_record_count": 64,
       "redacted_record_count": 28,
       "original_sha256": "099b8303b25a6349659a8adfd43dc5941c01856cefc13ce783c6162456507a60",
-      "redacted_sha256": "a91defb0e0c79ccd7c396ceefeb937275f04bbea8fb1faea203dfb842b2d76e4",
+      "redacted_sha256": "50d5c6edc9780231d035843787679e98b2dd567d29e962cfd5ae41a20502c952",
       "session_created_timestamp_utc": "2026-11-19T08:38:27.646Z",
       "original_first_timestamp_utc": "2026-11-19T08:54:51.652Z",
       "original_last_timestamp_utc": "2026-11-19T08:58:56.665Z",
@@ -5774,10 +5919,130 @@
         "timestamps_unchanged": true,
         "exact_structural_comparison_after_documented_redaction": true,
         "original_bytes_unchanged": true
+      },
+      "release_review": {
+        "prior_copy_sha256": "a91defb0e0c79ccd7c396ceefeb937275f04bbea8fb1faea203dfb842b2d76e4",
+        "prior_copy_record_count": 28,
+        "changed_records": [
+          {
+            "original_line": 1,
+            "categories": {
+              "project-remote-url": 1
+            }
+          },
+          {
+            "original_line": 13,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 14,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 17,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 22,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 23,
+            "categories": {
+              "private-app-identifier": 1
+            }
+          },
+          {
+            "original_line": 26,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 27,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 30,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 37,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 38,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 41,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 49,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 50,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 53,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 60,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 61,
+            "categories": {
+              "account-identifier": 1
+            }
+          },
+          {
+            "original_line": 64,
+            "categories": {
+              "account-identifier": 1
+            }
+          }
+        ],
+        "replacement_counts": {
+          "project-remote-url": 1,
+          "account-identifier": 15,
+          "private-app-identifier": 2
+        },
+        "timestamp_inversions_at_original_lines": []
       }
     }
   ],
-  "quality_assurance": {
+  "initial_quality_assurance": {
     "status": "passed",
     "preparation_date": "2026-11-26",
     "published_sessions": 5,
@@ -5840,5 +6105,7 @@
         "scientific_png_bytes_preserved": true
       }
     ]
-  }
+  },
+  "release_review_date": "2026-11-27",
+  "release_review_schema_version": 1
 }

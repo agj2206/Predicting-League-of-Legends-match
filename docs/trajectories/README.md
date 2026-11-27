@@ -1,36 +1,20 @@
 # Agent trajectories
 
-Each member's agent-use history, as required by the course (Special Tutorial, slide 15).
-Together with the commit history this is how individual workload is assessed (slide 9).
+These records document AI-assisted work on the CDS3004 project. The session attributions identify the participants supported by the evidence. See the [project contribution summary](../../README.md#group-contributions-and-agent-records) for planned assignments and Git authorship.
 
-| Member | Files | Tool |
-|---|---|---|
-| Cesar | `cesar/` | Claude Code |
-| Andrea | — | Codex |
-| Christian | — | — |
+| Project stage | Evidence | Recorded attribution |
+| --- | --- | --- |
+| Part A — Preprocessing and EDA | [Session guide](cesar/README.md) · [Manifest](cesar/manifest.json) | Two Claude Code sessions attributed to Cesar |
+| Part B — Model training | [Session guide](part_b/README.md) · [Manifest](part_b/manifest.json) | Codex planning and implementation, plus automated review. The planning operator identifies as Member 2. |
+| Part C — Evaluation | [Session guide](part_c/README.md) · [Manifest](part_c/manifest.json) | Codex evaluation interaction by the local operator, plus automated review. The operator's real-name identity is unverified. |
 
-## Cesar
+## Part A — Cesar
 
-- `2026-11-14_initial_exploration.jsonl` — the first session, on an e-commerce review-risk
-  dataset that was explored to a completed data-quality audit and then dropped. Kept because
-  decision D01 cites it as a considered alternative, and the record shows that work was real
-  rather than hypothetical.
-- `2026-11-18_to_11-26_lol_project.jsonl` — the League of Legends project: dataset selection,
-  Part A preprocessing, the data-quality findings, and the project documentation.
+- [Initial exploration](cesar/2026-11-14_initial_exploration.redacted.jsonl) records the exploratory audit of an e-commerce review-risk dataset considered before the League of Legends project. See decision D01 in the [decision log](../decisions.md).
+- [League of Legends project](cesar/2026-11-18_to_11-26_lol_project.redacted.jsonl) covers dataset selection, preprocessing, exploratory analysis, and documentation.
 
-These are raw JSONL session logs: one JSON object per line, holding the full conversation
-including every tool call and its result. They are not summaries and have not been edited.
+## Reading the evidence
 
-## Reading them
+Each JSONL line is a record. The guides explain the scope, attribution, and redactions. The manifests list the source-to-copy line mappings and SHA-256 hashes. Each retained record keeps its source timestamp and relative order. Original exports stay with their custodians. The exact files used for this review were also preserved in a private local archive.
 
-```
-python -c "
-import json
-for line in open('cesar/2026-11-18_to_11-26_lol_project.jsonl'):
-    r = json.loads(line)
-    print(r.get('type'), str(r.get('message', ''))[:160])
-"
-```
-
-Mistakes caught during these sessions are written up in `../agent_validation.md`, which is the
-readable version of what these logs contain.
+The [agent validation notes](../agent_validation.md) describe errors and corrections during the project. See the [publication review](../publication_review.md) for the distinction between these copies and the versions still reachable in Git history.
